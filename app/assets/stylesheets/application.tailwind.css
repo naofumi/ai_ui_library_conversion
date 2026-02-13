@@ -32,4 +32,25 @@
   .c-button--sm {
     @apply h-8 gap-1.5 px-3;
   }
+
+  .c-badge {
+    @apply inline-flex w-fit items-center justify-center whitespace-nowrap rounded-md border px-2 py-0.5 text-xs font-medium;
+  }
+
+  .c-badge--default {
+    @apply border-transparent bg-zinc-900 text-white;
+  }
+
+  .c-badge--secondary {
+    @apply border-transparent bg-zinc-100 text-zinc-900;
+  }
+
+  .c-badge--outline {
+    @apply border-zinc-200 text-zinc-900;
+  }
+
+  .c-badge--destructive {
+    @apply border-transparent bg-red-600 text-white;
+  }
+
 }
