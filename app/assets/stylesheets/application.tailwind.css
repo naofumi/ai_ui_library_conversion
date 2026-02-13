@@ -129,4 +129,32 @@
     @apply relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100;
   }
 
+  .c-card {
+    @apply flex max-w-sm flex-col gap-6 rounded-xl border border-zinc-200 bg-white py-6 shadow-sm;
+  }
+
+  .c-card__header {
+    @apply grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6;
+  }
+
+  .c-card__title {
+    @apply leading-none font-semibold;
+  }
+
+  .c-card__description {
+    @apply text-sm text-zinc-500;
+  }
+
+  .c-card__content {
+    @apply px-6;
+  }
+
+  .c-card__body-block {
+    @apply rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm text-zinc-700;
+  }
+
+  .c-card__footer {
+    @apply flex items-center justify-end px-6;
+  }
+
 }
