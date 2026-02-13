@@ -1,0 +1,9 @@
+@layer components {
+  .c-input {
+    @apply flex h-9 w-full min-w-0 rounded-md border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-950 shadow-xs outline-none transition-all placeholder:text-zinc-500 focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .c-input--file {
+    @apply file:inline-flex file:h-7 file:cursor-pointer file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-zinc-950;
+  }
+}

@@ -1,0 +1,25 @@
+@layer components {
+  .c-dropdown-menu {
+    @apply relative inline-block;
+  }
+
+  .c-dropdown-menu__trigger {
+    @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-xs transition-all hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-zinc-400;
+  }
+
+  .c-dropdown-menu__content {
+    @apply absolute top-full left-0 z-50 mt-2 min-w-48 rounded-md border border-zinc-200 bg-white p-1 shadow-md;
+  }
+
+  .c-dropdown-menu__label {
+    @apply px-2 py-1.5 text-sm font-semibold text-zinc-900;
+  }
+
+  .c-dropdown-menu__separator {
+    @apply -mx-1 my-1 h-px bg-zinc-200;
+  }
+
+  .c-dropdown-menu__item {
+    @apply relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100;
+  }
+}

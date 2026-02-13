@@ -1,0 +1,45 @@
+@layer components {
+  .c-dialog__overlay {
+    @apply fixed inset-0 z-50 bg-black/50;
+  }
+
+  .c-dialog__viewport {
+    @apply grid min-h-full place-items-center p-4;
+  }
+
+  .c-dialog__panel {
+    @apply relative grid w-full max-w-lg gap-4 rounded-lg border border-zinc-200 bg-white p-6 shadow-lg;
+  }
+
+  .c-dialog__icon-close {
+    @apply absolute top-4 right-4 inline-flex size-8 items-center justify-center rounded-md border border-zinc-200 bg-white text-zinc-900 shadow-xs transition-all hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-zinc-400;
+  }
+
+  .c-dialog__header {
+    @apply flex flex-col gap-2 text-left;
+  }
+
+  .c-dialog__title {
+    @apply text-lg leading-none font-semibold text-zinc-950;
+  }
+
+  .c-dialog__description {
+    @apply text-sm text-zinc-600;
+  }
+
+  .c-dialog__fields {
+    @apply grid gap-3;
+  }
+
+  .c-dialog__field {
+    @apply grid gap-2;
+  }
+
+  .c-dialog__label {
+    @apply text-sm font-medium text-zinc-900;
+  }
+
+  .c-dialog__actions {
+    @apply flex flex-col-reverse gap-2 sm:flex-row sm:justify-end;
+  }
+}
