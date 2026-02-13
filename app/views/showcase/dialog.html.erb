@@ -1,8 +1,8 @@
 <main class="mx-auto max-w-7xl px-6 py-10" data-controller="dialog-preview" data-action="keydown@window->dialog-preview#closeOnEscape">
   <header class="mb-8">
     <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
-    <h1 class="mt-2 text-3xl font-semibold tracking-tight">Dialog Conversion</h1>
-    <p class="mt-2 text-sm text-zinc-600">Compare shadcn dialog structure and open/close behavior.</p>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
+    <p class="mt-2 text-sm text-zinc-600"><%= @component.page_description %></p>
   </header>
 
   <section class="grid gap-6 lg:grid-cols-2">

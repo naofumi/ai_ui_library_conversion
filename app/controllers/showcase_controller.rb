@@ -1,42 +1,8 @@
 class ShowcaseController < ApplicationController
+  before_action :set_component, except: :index
+
   def index
-    @components = [
-      {
-        key: "button",
-        name: "Button",
-        description: "Base action button styles and states"
-      },
-      {
-        key: "badge",
-        name: "Badge",
-        description: "Compact status labels and semantic variants"
-      },
-      {
-        key: "card",
-        name: "Card",
-        description: "Container, content hierarchy, and actions"
-      },
-      {
-        key: "alert",
-        name: "Alert",
-        description: "Contextual message and dismiss behavior"
-      },
-      {
-        key: "input",
-        name: "Input",
-        description: "Form input field styles and states"
-      },
-      {
-        key: "dialog",
-        name: "Dialog",
-        description: "Modal overlay, content, and close actions"
-      },
-      {
-        key: "dropdown_menu",
-        name: "Dropdown Menu",
-        description: "Context menu surface with grouped actions"
-      }
-    ]
+    @components = ShowcaseComponent.all
   end
 
   def button; end
@@ -46,4 +12,10 @@ class ShowcaseController < ApplicationController
   def input; end
   def dialog; end
   def dropdown_menu; end
+
+  private
+
+  def set_component
+    @component = ShowcaseComponent.find!(action_name)
+  end
 end
