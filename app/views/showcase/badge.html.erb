@@ -2,22 +2,22 @@
   <header class="mb-8">
     <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
     <h1 class="mt-2 text-3xl font-semibold tracking-tight">Badge Conversion</h1>
-    <p class="mt-2 text-sm text-zinc-600">Compare visual variants between React source and Rails conversion.</p>
+    <p class="mt-2 text-sm text-zinc-600">Compare shadcn badge variants and converted Rails equivalents.</p>
   </header>
 
   <section class="grid gap-6 lg:grid-cols-2">
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React)</h2>
-      <div id="react-shadcn-badge-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-badge-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
     </article>
 
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
-      <div class="flex flex-wrap gap-3">
-        <span class="inline-flex items-center rounded-full border border-transparent bg-zinc-900 px-2.5 py-0.5 text-xs font-semibold text-zinc-50">Default</span>
-        <span class="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-100 px-2.5 py-0.5 text-xs font-semibold text-zinc-900">Secondary</span>
-        <span class="inline-flex items-center rounded-full border border-red-200 bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Destructive</span>
-        <span class="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">Success</span>
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-zinc-900 px-2 py-0.5 text-xs font-medium text-white">Default</span>
+        <span class="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-900">Secondary</span>
+        <span class="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-md border border-zinc-200 px-2 py-0.5 text-xs font-medium text-zinc-900">Outline</span>
+        <span class="inline-flex w-fit items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-2 py-0.5 text-xs font-medium text-white">Destructive</span>
       </div>
     </article>
   </section>

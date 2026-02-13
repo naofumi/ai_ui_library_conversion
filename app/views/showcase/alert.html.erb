@@ -2,32 +2,26 @@
   <header class="mb-8">
     <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
     <h1 class="mt-2 text-3xl font-semibold tracking-tight">Alert Conversion</h1>
-    <p class="mt-2 text-sm text-zinc-600">Compare informational alert styling and dismiss interaction.</p>
+    <p class="mt-2 text-sm text-zinc-600">Compare shadcn alert structure and dismiss behavior.</p>
   </header>
 
   <section class="grid gap-6 lg:grid-cols-2">
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React)</h2>
-      <div id="react-shadcn-alert-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-alert-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
     </article>
 
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
       <div class="mb-4">
-        <button type="button" data-action="alert-preview#reset" class="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50">Restore alert</button>
+        <button type="button" data-action="alert-preview#reset" class="rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-xs hover:bg-zinc-100">Restore alert</button>
       </div>
 
-      <div data-alert-preview-target="alert" class="max-w-lg rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900">
-        <div class="flex items-start justify-between gap-3">
-          <div class="flex items-start gap-3">
-            <div class="mt-0.5 h-2.5 w-2.5 rounded-full bg-amber-500"></div>
-            <div>
-              <h3 class="text-sm font-semibold">Heads up</h3>
-              <p class="mt-1 text-sm text-amber-800">This alert demonstrates an informational state with a dismiss action.</p>
-            </div>
-          </div>
-          <button type="button" data-action="alert-preview#dismiss" class="rounded-md px-2 py-1 text-xs font-medium text-amber-900 hover:bg-amber-100">Dismiss</button>
-        </div>
+      <div data-alert-preview-target="alert" role="alert" class="relative grid w-full max-w-lg grid-cols-[calc(var(--spacing)*4)_1fr] items-start gap-x-3 gap-y-1 rounded-lg border border-zinc-200 px-4 py-3 text-sm text-zinc-950">
+        <div class="mt-0.5 size-2.5 rounded-full bg-zinc-900"></div>
+        <div class="col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight">Heads up</div>
+        <div class="col-start-2 text-sm text-zinc-600">This alert demonstrates an informational state with a dismiss action.</div>
+        <button type="button" data-action="alert-preview#dismiss" class="col-start-2 mt-2 w-fit rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs font-medium text-zinc-900 shadow-xs hover:bg-zinc-100">Dismiss</button>
       </div>
     </article>
   </section>
