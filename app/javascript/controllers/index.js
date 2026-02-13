@@ -12,3 +12,5 @@ import AlertPreviewController from "./alert_preview_controller"
 application.register("alert-preview", AlertPreviewController)
 import DialogPreviewController from "./dialog_preview_controller"
 application.register("dialog-preview", DialogPreviewController)
+import DropdownMenuPreviewController from "./dropdown_menu_preview_controller"
+application.register("dropdown-menu-preview", DropdownMenuPreviewController)

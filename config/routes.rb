@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "/alert", to: "showcase#alert"
   get "/input", to: "showcase#input"
   get "/dialog", to: "showcase#dialog"
+  get "/dropdown_menu", to: "showcase#dropdown_menu"
 end

@@ -6,6 +6,7 @@ import ShadcnCardDemo from "./components/ShadcnCardDemo"
 import ShadcnAlertDemo from "./components/ShadcnAlertDemo"
 import ShadcnInputDemo from "./components/ShadcnInputDemo"
 import ShadcnDialogDemo from "./components/ShadcnDialogDemo"
+import ShadcnDropdownMenuDemo from "./components/ShadcnDropdownMenuDemo"
 
 const roots = new WeakMap()
 
@@ -29,6 +30,7 @@ function mountAllDemos() {
   mountReactDemo("shadcn-alert-demo", ShadcnAlertDemo)
   mountReactDemo("shadcn-input-demo", ShadcnInputDemo)
   mountReactDemo("shadcn-dialog-demo", ShadcnDialogDemo)
+  mountReactDemo("shadcn-dropdown-menu-demo", ShadcnDropdownMenuDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)

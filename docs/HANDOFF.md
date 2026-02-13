@@ -14,6 +14,7 @@ Recent follow-up commits:
 - Alert (`/alert`)
 - Input (`/input`)
 - Dialog (`/dialog`)
+- Dropdown Menu (`/dropdown_menu`)
 
 Each page uses side-by-side comparison:
 - Left: React source using shadcn-style primitives.
@@ -26,6 +27,7 @@ Each page uses side-by-side comparison:
 - `app/javascript/components/ui/alert.jsx`
 - `app/javascript/components/ui/input.jsx`
 - `app/javascript/components/ui/dialog.jsx`
+- `app/javascript/components/ui/dropdown-menu.jsx`
 - `app/javascript/lib/utils.js`
 - `app/javascript/shadcn_preview.jsx`
 - `app/controllers/showcase_controller.rb`
@@ -38,6 +40,6 @@ Each page uses side-by-side comparison:
 - For now, alert behavior remains as implemented (no additional ARIA sync logic beyond current parity setup).
 
 ## Suggested Next Work
-- Add next components (suggested order): `DropdownMenu`.
+- Add next components (suggested order): (choose next target component).
 - Extract reusable comparison layout/partials to reduce duplicate page markup.
 - Continue parity checks component-by-component with targeted commits.

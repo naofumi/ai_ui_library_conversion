@@ -1,0 +1,45 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight">Dropdown Menu Conversion</h1>
+    <p class="mt-2 text-sm text-zinc-600">Compare shadcn dropdown menu layout and open/close behavior.</p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-dropdown-menu-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
+
+      <div data-controller="dropdown-menu-preview" class="relative inline-block">
+        <button type="button" data-action="dropdown-menu-preview#toggle" class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-xs transition-all hover:bg-zinc-100 focus-visible:ring-2 focus-visible:ring-zinc-400">
+          Open menu
+        </button>
+
+        <div data-dropdown-menu-preview-target="content" class="absolute top-full left-0 z-50 mt-2 hidden min-w-48 rounded-md border border-zinc-200 bg-white p-1 shadow-md">
+          <div class="px-2 py-1.5 text-sm font-semibold text-zinc-900">My Account</div>
+          <div class="-mx-1 my-1 h-px bg-zinc-200"></div>
+
+          <button type="button" data-action="dropdown-menu-preview#close" class="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100">
+            Profile
+          </button>
+          <button type="button" data-action="dropdown-menu-preview#close" class="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100">
+            Billing
+          </button>
+          <button type="button" data-action="dropdown-menu-preview#close" class="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100">
+            Settings
+          </button>
+
+          <div class="-mx-1 my-1 h-px bg-zinc-200"></div>
+
+          <button type="button" data-action="dropdown-menu-preview#close" class="relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100">
+            Log out
+          </button>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>

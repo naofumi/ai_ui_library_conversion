@@ -30,6 +30,11 @@ class ShowcaseController < ApplicationController
         key: "dialog",
         name: "Dialog",
         description: "Modal overlay, content, and close actions"
+      },
+      {
+        key: "dropdown_menu",
+        name: "Dropdown Menu",
+        description: "Context menu surface with grouped actions"
       }
     ]
   end
@@ -40,4 +45,5 @@ class ShowcaseController < ApplicationController
   def alert; end
   def input; end
   def dialog; end
+  def dropdown_menu; end
 end
