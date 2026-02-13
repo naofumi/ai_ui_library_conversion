@@ -1,0 +1,46 @@
+<main class="mx-auto max-w-7xl px-6 py-10" data-controller="button-preview">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight">Button Conversion</h1>
+    <p class="mt-2 text-sm text-zinc-600">Left side is React (ShadCN-like source). Right side is converted Rails + Tailwind + Stimulus.</p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React)</h2>
+      <div id="react-shadcn-button-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
+
+      <div class="mb-4 flex items-center gap-3">
+        <button
+          type="button"
+          data-action="button-preview#toggleDisabled"
+          class="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
+        >
+          Toggle disabled state
+        </button>
+        <p class="text-xs text-zinc-500">Demonstrates behavior handled by Stimulus when needed.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button
+          type="button"
+          data-button-preview-target="button"
+          class="inline-flex h-10 items-center justify-center rounded-md bg-zinc-900 px-4 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Converted Button
+        </button>
+
+        <button
+          type="button"
+          class="inline-flex h-10 items-center justify-center rounded-md border border-zinc-300 bg-white px-4 text-sm font-medium text-zinc-900 transition-colors hover:bg-zinc-100"
+        >
+          Secondary
+        </button>
+      </div>
+    </article>
+  </section>
+</main>

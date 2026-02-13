@@ -1,0 +1,18 @@
+<main class="mx-auto max-w-5xl px-6 py-10">
+  <header class="mb-8">
+    <h1 class="text-3xl font-semibold tracking-tight">ShadCN Conversion Lab</h1>
+    <p class="mt-2 text-sm text-zinc-600">
+      Compare original ShadCN-inspired React output against converted Rails HTML/CSS/JS implementations.
+    </p>
+  </header>
+
+  <section class="grid gap-4 sm:grid-cols-2">
+    <% @components.each do |component| %>
+      <article class="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+        <h2 class="text-lg font-medium"><%= component[:name] %></h2>
+        <p class="mt-1 text-sm text-zinc-600"><%= component[:description] %></p>
+        <%= link_to "Open comparison", component[:key], class: "mt-4 inline-block rounded-md bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-700" %>
+      </article>
+    <% end %>
+  </section>
+</main>
