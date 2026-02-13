@@ -1,0 +1,28 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight">Card Conversion</h1>
+    <p class="mt-2 text-sm text-zinc-600">Compare card structure, spacing, and action styling.</p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React)</h2>
+      <div id="react-shadcn-card-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+      <div class="max-w-sm rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Card Title</h3>
+        <p class="mt-1 text-sm text-zinc-600">Card description text that explains content at a glance.</p>
+        <div class="mt-5 rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm text-zinc-700">
+          Body content area for converted component parity checks.
+        </div>
+        <div class="mt-4 flex justify-end">
+          <button type="button" class="inline-flex h-9 items-center rounded-md bg-zinc-900 px-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700">Action</button>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>

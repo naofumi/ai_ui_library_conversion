@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   root "showcase#index"
   get "/button", to: "showcase#button"
+  get "/badge", to: "showcase#badge"
+  get "/card", to: "showcase#card"
+  get "/alert", to: "showcase#alert"
 end
