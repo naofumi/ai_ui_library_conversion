@@ -43,6 +43,7 @@ Then open `http://localhost:3000`.
 - `app/views/showcase/index.html.erb`: component index
 - `app/views/showcase/button.html.erb`: side-by-side button comparison
 - `app/javascript/components/ShadcnButtonDemo.jsx`: React source demo
+- `app/javascript/components/ui/*`: shadcn-style React UI primitives used by source demos
 - `app/javascript/shadcn_preview.jsx`: React mount points
 - `app/javascript/controllers/button_preview_controller.js`: Stimulus behavior for converted demo
 
