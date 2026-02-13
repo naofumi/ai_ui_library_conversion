@@ -1,0 +1,24 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight">Input Conversion</h1>
+    <p class="mt-2 text-sm text-zinc-600">Compare shadcn input field states and converted Rails equivalents.</p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-input-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+      <div class="grid max-w-sm gap-3">
+        <input type="email" placeholder="name@example.com" class="flex h-9 w-full min-w-0 rounded-md border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-950 shadow-xs outline-none transition-all placeholder:text-zinc-500 focus-visible:ring-2 focus-visible:ring-zinc-400">
+        <input type="text" value="Prefilled value" readonly class="flex h-9 w-full min-w-0 rounded-md border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-950 shadow-xs outline-none transition-all placeholder:text-zinc-500 focus-visible:ring-2 focus-visible:ring-zinc-400">
+        <input type="text" placeholder="Disabled input" disabled class="flex h-9 w-full min-w-0 cursor-not-allowed rounded-md border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-950 opacity-50 shadow-xs outline-none transition-all placeholder:text-zinc-500">
+        <input type="file" class="flex h-9 w-full min-w-0 rounded-md border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-950 shadow-xs outline-none transition-all file:inline-flex file:h-7 file:cursor-pointer file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-zinc-950 focus-visible:ring-2 focus-visible:ring-zinc-400">
+      </div>
+    </article>
+  </section>
+</main>

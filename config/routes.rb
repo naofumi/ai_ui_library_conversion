@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get "/badge", to: "showcase#badge"
   get "/card", to: "showcase#card"
   get "/alert", to: "showcase#alert"
+  get "/input", to: "showcase#input"
 end

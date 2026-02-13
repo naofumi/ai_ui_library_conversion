@@ -20,6 +20,11 @@ class ShowcaseController < ApplicationController
         key: "alert",
         name: "Alert",
         description: "Contextual message and dismiss behavior"
+      },
+      {
+        key: "input",
+        name: "Input",
+        description: "Form input field styles and states"
       }
     ]
   end
@@ -28,4 +33,5 @@ class ShowcaseController < ApplicationController
   def badge; end
   def card; end
   def alert; end
+  def input; end
 end
