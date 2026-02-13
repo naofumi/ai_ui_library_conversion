@@ -25,6 +25,11 @@ class ShowcaseController < ApplicationController
         key: "input",
         name: "Input",
         description: "Form input field styles and states"
+      },
+      {
+        key: "dialog",
+        name: "Dialog",
+        description: "Modal overlay, content, and close actions"
       }
     ]
   end
@@ -34,4 +39,5 @@ class ShowcaseController < ApplicationController
   def card; end
   def alert; end
   def input; end
+  def dialog; end
 end

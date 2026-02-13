@@ -5,6 +5,7 @@ import ShadcnBadgeDemo from "./components/ShadcnBadgeDemo"
 import ShadcnCardDemo from "./components/ShadcnCardDemo"
 import ShadcnAlertDemo from "./components/ShadcnAlertDemo"
 import ShadcnInputDemo from "./components/ShadcnInputDemo"
+import ShadcnDialogDemo from "./components/ShadcnDialogDemo"
 
 const roots = new WeakMap()
 
@@ -27,6 +28,7 @@ function mountAllDemos() {
   mountReactDemo("shadcn-card-demo", ShadcnCardDemo)
   mountReactDemo("shadcn-alert-demo", ShadcnAlertDemo)
   mountReactDemo("shadcn-input-demo", ShadcnInputDemo)
+  mountReactDemo("shadcn-dialog-demo", ShadcnDialogDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)
