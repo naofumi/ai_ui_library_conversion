@@ -35,13 +35,19 @@ Then open `http://localhost:3000`.
 ## Current showcase pages
 
 - `/` component index
-- `/button` button conversion example
+- `/shadcn/button`
+- `/shadcn/badge`
+- `/shadcn/card`
+- `/shadcn/alert`
+- `/shadcn/input`
+- `/shadcn/dialog`
+- `/shadcn/dropdown_menu`
 
 ## File map
 
-- `app/controllers/showcase_controller.rb`: showcase pages
-- `app/views/showcase/index.html.erb`: component index
-- `app/views/showcase/button.html.erb`: side-by-side button comparison
+- `app/controllers/shadcn_showcase_controller.rb`: shadcn showcase pages
+- `app/views/shadcn_showcase/index.html.erb`: component index
+- `app/views/shadcn_showcase/button.html.erb`: side-by-side button comparison
 - `app/javascript/components/ShadcnButtonDemo.jsx`: React source demo
 - `app/javascript/components/ui/*`: real shadcn-style React UI components (Radix-backed where applicable) used by source demos
 - `app/javascript/shadcn_preview.jsx`: React mount points
@@ -59,9 +65,9 @@ This keeps the app aligned with the Node/Yarn workflow.
 
 ## Adding a new component comparison
 
-1. Add a route and action in `showcase_controller.rb`.
-2. Create `app/views/showcase/<component>.html.erb` with two panels.
+1. Add a route and action in `shadcn_showcase_controller.rb`.
+2. Create `app/views/shadcn_showcase/<component>.html.erb` with two panels.
 3. Add a React source demo in `app/javascript/components`.
 4. Mount it from `app/javascript/shadcn_preview.jsx`.
 5. Add Stimulus controller logic only if interaction is needed.
-6. Add the component card in `app/views/showcase/index.html.erb`.
+6. Add the component card in `app/views/shadcn_showcase/index.html.erb`.

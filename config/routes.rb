@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  root "showcase#index"
-  get "/button", to: "showcase#button"
-  get "/badge", to: "showcase#badge"
-  get "/card", to: "showcase#card"
-  get "/alert", to: "showcase#alert"
-  get "/input", to: "showcase#input"
-  get "/dialog", to: "showcase#dialog"
-  get "/dropdown_menu", to: "showcase#dropdown_menu"
+  root "shadcn_showcase#index"
+
+  scope :shadcn, controller: :shadcn_showcase, as: :shadcn do
+    get :button
+    get :badge
+    get :card
+    get :alert
+    get :input
+    get :dialog
+    get :dropdown_menu
+  end
 end

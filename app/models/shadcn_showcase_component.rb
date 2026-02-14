@@ -1,4 +1,4 @@
-class ShowcaseComponent
+class ShadcnShowcaseComponent
   attr_reader :key, :name, :description, :page_title, :page_description
 
   COMPONENTS = [
@@ -70,6 +70,6 @@ class ShowcaseComponent
   end
 
   def path
-    "/#{key}"
+    "/shadcn/#{key}"
   end
 end

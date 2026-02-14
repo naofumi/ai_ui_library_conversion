@@ -1,8 +1,8 @@
-class ShowcaseController < ApplicationController
+class ShadcnShowcaseController < ApplicationController
   before_action :set_component, except: :index
 
   def index
-    @components = ShowcaseComponent.all
+    @components = ShadcnShowcaseComponent.all
   end
 
   def button; end
@@ -16,6 +16,6 @@ class ShowcaseController < ApplicationController
   private
 
   def set_component
-    @component = ShowcaseComponent.find!(action_name)
+    @component = ShadcnShowcaseComponent.find!(action_name)
   end
 end
