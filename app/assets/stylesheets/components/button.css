@@ -30,4 +30,12 @@
   .c-button--sm {
     @apply h-8 gap-1.5 px-3;
   }
+
+  .c-button--lg {
+    @apply h-10 px-6;
+  }
+
+  .c-button--icon {
+    @apply size-9 px-0;
+  }
 }
