@@ -60,4 +60,3 @@ Each showcase page should include:
 When approach changes, update:
 - `docs/CONVERSION_APPROACH.md` (full methodology)
 - `AGENTS.md` (concise operational summary + link)
-- `docs/HANDOFF.md` if current component status or conventions changed
