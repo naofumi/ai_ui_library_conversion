@@ -1,12 +1,12 @@
 # ShadCN Conversion Lab
 
-Rails app for comparing ShadCN-style React components against converted Rails HTML/CSS/JS implementations.
+Rails app for comparing real shadcn/ui React components against converted Rails HTML/CSS/JS implementations.
 
 ## Goal
 
 Each showcase page renders two panels side by side:
 
-- `Source (React)`: a React implementation that mirrors the ShadCN component behavior/style.
+- `Source (React)`: a React implementation using real shadcn/ui patterns and Radix primitives.
 - `Converted (Rails + Tailwind + Stimulus)`: the target implementation using ERB, Tailwind classes, and Stimulus only when interaction is needed.
 
 ## Stack
@@ -43,7 +43,7 @@ Then open `http://localhost:3000`.
 - `app/views/showcase/index.html.erb`: component index
 - `app/views/showcase/button.html.erb`: side-by-side button comparison
 - `app/javascript/components/ShadcnButtonDemo.jsx`: React source demo
-- `app/javascript/components/ui/*`: shadcn-style React UI primitives used by source demos
+- `app/javascript/components/ui/*`: real shadcn-style React UI components (Radix-backed where applicable) used by source demos
 - `app/javascript/shadcn_preview.jsx`: React mount points
 - `app/javascript/controllers/button_preview_controller.js`: Stimulus behavior for converted demo
 

@@ -5,7 +5,7 @@ Build a Rails app that converts shadcn/ui components into Rails ERB + Tailwind +
 
 ## Comparison Pattern
 Each component showcase page should render:
-- Left panel: React source implementation using shadcn-style primitives.
+- Left panel: React source implementation using real shadcn/ui component patterns (Radix-backed where applicable).
 - Right panel: Converted Rails implementation (ERB + Tailwind + Stimulus when interaction is needed).
 
 Parity (visual and behavioral) is the priority.

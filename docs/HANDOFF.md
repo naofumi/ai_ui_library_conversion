@@ -17,7 +17,7 @@ Recent follow-up commits:
 - Dropdown Menu (`/dropdown_menu`)
 
 Each page uses side-by-side comparison:
-- Left: React source using shadcn-style primitives.
+- Left: React source using real shadcn/ui component patterns (including Radix primitives where applicable).
 - Right: Converted Rails ERB/Tailwind/Stimulus.
 
 ## Key Files
