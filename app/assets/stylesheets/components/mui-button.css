@@ -1,0 +1,29 @@
+@layer components {
+  .mc-button {
+    @apply inline-flex h-9 items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-all focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .mc-button--contained {
+    @apply bg-blue-600 text-white shadow-xs hover:bg-blue-700;
+  }
+
+  .mc-button--outlined {
+    @apply border border-zinc-300 bg-white text-zinc-900 hover:bg-zinc-50;
+  }
+
+  .mc-button--text {
+    @apply bg-transparent text-blue-700 hover:bg-blue-50;
+  }
+
+  .mc-button--error {
+    @apply bg-red-600 text-white shadow-xs hover:bg-red-700;
+  }
+
+  .mc-button--sm {
+    @apply h-8 px-3 text-xs;
+  }
+
+  .mc-button--lg {
+    @apply h-10 px-5 text-base;
+  }
+}
