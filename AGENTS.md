@@ -14,7 +14,7 @@ Parity (visual and behavioral) is the priority.
 - Rails 8.1
 - jsbundling-rails (esbuild)
 - cssbundling-rails (Tailwind Node CLI)
-- React for source panel
+- React for source-panel
 - Stimulus for converted-side behavior
 
 ## JavaScript Package Manager Policy
@@ -44,3 +44,11 @@ Do not introduce additional a11y behavior that diverges from the source without 
 ## Commit Style
 Keep commits small and focused.
 Use descriptive commit messages that name the component or parity fix.
+
+## Conversion Methodology
+Detailed methodology lives in `docs/CONVERSION_APPROACH.md`.
+
+Use it as the primary reference for:
+- Source-vs-converted parity workflow
+- BEM-like converted CSS naming aligned with shadcn variants
+- Stimulus usage boundaries and verification checklist
