@@ -18,16 +18,30 @@ const alertVariants = cva(
   }
 )
 
-function Alert({ className, variant, ...props }) {
-  return <div data-slot="alert" role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
-}
+const Alert = React.forwardRef(function Alert({ className, variant, ...props }, ref) {
+  return <div ref={ref} data-slot="alert" role="alert" className={cn(alertVariants({ variant }), className)} {...props} />
+})
 
-function AlertTitle({ className, ...props }) {
-  return <div data-slot="alert-title" className={cn("col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight", className)} {...props} />
-}
+const AlertTitle = React.forwardRef(function AlertTitle({ className, ...props }, ref) {
+  return (
+    <div
+      ref={ref}
+      data-slot="alert-title"
+      className={cn("col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight", className)}
+      {...props}
+    />
+  )
+})
 
-function AlertDescription({ className, ...props }) {
-  return <div data-slot="alert-description" className={cn("text-zinc-600 col-start-2 grid justify-items-start gap-1 text-sm", className)} {...props} />
-}
+const AlertDescription = React.forwardRef(function AlertDescription({ className, ...props }, ref) {
+  return (
+    <div
+      ref={ref}
+      data-slot="alert-description"
+      className={cn("text-zinc-600 col-start-2 grid justify-items-start gap-1 text-sm", className)}
+      {...props}
+    />
+  )
+})
 
 export { Alert, AlertTitle, AlertDescription }

@@ -2,9 +2,10 @@ import React from "react"
 
 import { cn } from "../../lib/utils"
 
-function Input({ className, type = "text", ...props }) {
+const Input = React.forwardRef(function Input({ className, type = "text", ...props }, ref) {
   return (
     <input
+      ref={ref}
       type={type}
       data-slot="input"
       className={cn(
@@ -14,6 +15,6 @@ function Input({ className, type = "text", ...props }) {
       {...props}
     />
   )
-}
+})
 
 export { Input }

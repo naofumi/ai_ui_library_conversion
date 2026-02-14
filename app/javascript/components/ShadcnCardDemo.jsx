@@ -1,22 +1,27 @@
 import React from "react"
 
 import { Button } from "./ui/button"
+import { Input } from "./ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
 
 export default function ShadcnCardDemo() {
   return (
     <Card className="max-w-sm">
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card description text that explains content at a glance.</CardDescription>
+        <CardTitle>Create project</CardTitle>
+        <CardDescription>Deploy your new project in one click.</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="rounded-md border border-zinc-200 bg-zinc-50 p-3 text-sm text-zinc-700">
-          Body content area for converted component parity checks.
+        <div className="grid gap-2">
+          <label htmlFor="project-name" className="text-sm font-medium text-zinc-900">
+            Name
+          </label>
+          <Input id="project-name" placeholder="shadcn-conversion" />
         </div>
       </CardContent>
-      <CardFooter className="justify-end">
-        <Button size="sm">Action</Button>
+      <CardFooter className="justify-between gap-2">
+        <Button variant="outline">Cancel</Button>
+        <Button>Deploy</Button>
       </CardFooter>
     </Card>
   )
