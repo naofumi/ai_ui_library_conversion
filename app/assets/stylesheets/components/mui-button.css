@@ -1,4 +1,66 @@
 @layer components {
+  :root {
+    --mc-btn-radius: 4px;
+    --mc-btn-min-width: 64px;
+    --mc-btn-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    --mc-btn-font-weight: 500;
+    --mc-btn-letter-spacing: 0.02857em;
+    --mc-btn-line-height: 1.75;
+    --mc-btn-font-size-md: 0.875rem;
+    --mc-btn-font-size-sm: 0.8125rem;
+    --mc-btn-font-size-lg: 0.9375rem;
+
+    --mc-btn-pad-y-md: 6px;
+    --mc-btn-pad-x-md: 16px;
+    --mc-btn-pad-y-sm: 4px;
+    --mc-btn-pad-x-sm: 10px;
+    --mc-btn-pad-y-lg: 8px;
+    --mc-btn-pad-x-lg: 22px;
+
+    --mc-btn-outlined-pad-y-md: 5px;
+    --mc-btn-outlined-pad-x-md: 15px;
+    --mc-btn-outlined-pad-y-sm: 3px;
+    --mc-btn-outlined-pad-x-sm: 9px;
+    --mc-btn-outlined-pad-y-lg: 7px;
+    --mc-btn-outlined-pad-x-lg: 21px;
+
+    --mc-btn-text-pad-y-md: 6px;
+    --mc-btn-text-pad-x-md: 8px;
+    --mc-btn-text-pad-y-sm: 4px;
+    --mc-btn-text-pad-x-sm: 5px;
+    --mc-btn-text-pad-y-lg: 8px;
+    --mc-btn-text-pad-x-lg: 11px;
+
+    --mc-color-primary: rgb(25, 118, 210);
+    --mc-color-primary-hover: rgb(21, 101, 192);
+    --mc-color-primary-contrast: rgb(255, 255, 255);
+    --mc-color-primary-alpha-50: rgb(25 118 210 / 50%);
+    --mc-color-primary-alpha-4: rgb(25 118 210 / 4%);
+    --mc-color-primary-alpha-30: rgb(25 118 210 / 30%);
+
+    --mc-color-error: rgb(211, 47, 47);
+    --mc-color-error-hover: rgb(198, 40, 40);
+    --mc-color-error-contrast: rgb(255, 255, 255);
+
+    --mc-color-disabled-bg: rgb(0 0 0 / 12%);
+    --mc-color-disabled-fg: rgb(0 0 0 / 26%);
+
+    --mc-shadow-contained:
+      0 3px 1px -2px rgb(0 0 0 / 20%),
+      0 2px 2px 0 rgb(0 0 0 / 14%),
+      0 1px 5px 0 rgb(0 0 0 / 12%);
+    --mc-shadow-contained-hover:
+      0 2px 4px -1px rgb(0 0 0 / 20%),
+      0 4px 5px 0 rgb(0 0 0 / 14%),
+      0 1px 10px 0 rgb(0 0 0 / 12%);
+
+    --mc-transition:
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .mc-button-shell {
     @apply rounded-lg border border-dashed border-zinc-300 p-6;
   }
@@ -10,128 +72,115 @@
   .mc-button {
     align-items: center;
     border: 0;
-    border-radius: 4px;
+    border-radius: var(--mc-btn-radius);
     cursor: pointer;
     display: inline-flex;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-family: var(--mc-btn-font-family);
+    font-size: var(--mc-btn-font-size-md);
+    font-weight: var(--mc-btn-font-weight);
     justify-content: center;
-    letter-spacing: 0.02857em;
-    line-height: 1.75;
-    min-width: 64px;
-    padding: 6px 16px;
+    letter-spacing: var(--mc-btn-letter-spacing);
+    line-height: var(--mc-btn-line-height);
+    min-width: var(--mc-btn-min-width);
+    padding: var(--mc-btn-pad-y-md) var(--mc-btn-pad-x-md);
     text-transform: uppercase;
-    transition:
-      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--mc-transition);
     user-select: none;
     vertical-align: middle;
     white-space: nowrap;
   }
 
   .mc-button--contained {
-    background-color: rgb(25, 118, 210);
-    box-shadow:
-      0 3px 1px -2px rgb(0 0 0 / 20%),
-      0 2px 2px 0 rgb(0 0 0 / 14%),
-      0 1px 5px 0 rgb(0 0 0 / 12%);
-    color: rgb(255, 255, 255);
+    background-color: var(--mc-color-primary);
+    box-shadow: var(--mc-shadow-contained);
+    color: var(--mc-color-primary-contrast);
   }
 
   .mc-button--contained:hover {
-    background-color: rgb(21, 101, 192);
-    box-shadow:
-      0 2px 4px -1px rgb(0 0 0 / 20%),
-      0 4px 5px 0 rgb(0 0 0 / 14%),
-      0 1px 10px 0 rgb(0 0 0 / 12%);
+    background-color: var(--mc-color-primary-hover);
+    box-shadow: var(--mc-shadow-contained-hover);
   }
 
   .mc-button--outlined {
     background-color: transparent;
-    border: 1px solid rgb(25 118 210 / 50%);
-    color: rgb(25, 118, 210);
-    padding: 5px 15px;
+    border: 1px solid var(--mc-color-primary-alpha-50);
+    color: var(--mc-color-primary);
+    padding: var(--mc-btn-outlined-pad-y-md) var(--mc-btn-outlined-pad-x-md);
   }
 
   .mc-button--outlined:hover,
   .mc-button--text:hover {
-    background-color: rgb(25 118 210 / 4%);
+    background-color: var(--mc-color-primary-alpha-4);
   }
 
   .mc-button--outlined:hover {
-    border-color: rgb(25, 118, 210);
+    border-color: var(--mc-color-primary);
   }
 
   .mc-button--text {
     background-color: transparent;
-    color: rgb(25, 118, 210);
-    padding: 6px 8px;
+    color: var(--mc-color-primary);
+    padding: var(--mc-btn-text-pad-y-md) var(--mc-btn-text-pad-x-md);
   }
 
   .mc-button--error {
-    background-color: rgb(211, 47, 47);
-    box-shadow:
-      0 3px 1px -2px rgb(0 0 0 / 20%),
-      0 2px 2px 0 rgb(0 0 0 / 14%),
-      0 1px 5px 0 rgb(0 0 0 / 12%);
-    color: rgb(255, 255, 255);
+    background-color: var(--mc-color-error);
+    box-shadow: var(--mc-shadow-contained);
+    color: var(--mc-color-error-contrast);
   }
 
   .mc-button--error:hover {
-    background-color: rgb(198, 40, 40);
+    background-color: var(--mc-color-error-hover);
   }
 
   .mc-button--sm {
-    font-size: 0.8125rem;
-    min-width: 64px;
-    padding: 4px 10px;
+    font-size: var(--mc-btn-font-size-sm);
+    min-width: var(--mc-btn-min-width);
+    padding: var(--mc-btn-pad-y-sm) var(--mc-btn-pad-x-sm);
   }
 
   .mc-button--lg {
-    font-size: 0.9375rem;
-    min-width: 64px;
-    padding: 8px 22px;
+    font-size: var(--mc-btn-font-size-lg);
+    min-width: var(--mc-btn-min-width);
+    padding: var(--mc-btn-pad-y-lg) var(--mc-btn-pad-x-lg);
   }
 
   .mc-button--outlined.mc-button--sm {
-    padding: 3px 9px;
+    padding: var(--mc-btn-outlined-pad-y-sm) var(--mc-btn-outlined-pad-x-sm);
   }
 
   .mc-button--outlined.mc-button--lg {
-    padding: 7px 21px;
+    padding: var(--mc-btn-outlined-pad-y-lg) var(--mc-btn-outlined-pad-x-lg);
   }
 
   .mc-button--text.mc-button--sm {
-    padding: 4px 5px;
+    padding: var(--mc-btn-text-pad-y-sm) var(--mc-btn-text-pad-x-sm);
   }
 
   .mc-button--text.mc-button--lg {
-    padding: 8px 11px;
+    padding: var(--mc-btn-text-pad-y-lg) var(--mc-btn-text-pad-x-lg);
   }
 
   .mc-button:focus-visible {
-    outline: 3px solid rgb(25 118 210 / 30%);
+    outline: 3px solid var(--mc-color-primary-alpha-30);
     outline-offset: 2px;
   }
 
   .mc-button:disabled {
     box-shadow: none;
-    color: rgb(0 0 0 / 26%);
+    color: var(--mc-color-disabled-fg);
     cursor: default;
     pointer-events: none;
   }
 
   .mc-button--contained:disabled,
   .mc-button--error:disabled {
-    background-color: rgb(0 0 0 / 12%);
-    color: rgb(0 0 0 / 26%);
+    background-color: var(--mc-color-disabled-bg);
+    color: var(--mc-color-disabled-fg);
   }
 
   .mc-button--outlined:disabled {
-    border-color: rgb(0 0 0 / 12%);
+    border-color: var(--mc-color-disabled-bg);
   }
 
   .mc-button--text:disabled {
