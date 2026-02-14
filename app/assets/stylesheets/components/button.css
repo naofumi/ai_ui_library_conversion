@@ -1,41 +1,41 @@
 @layer components {
-  .c-button {
+  .sc-button {
     @apply inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-all focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:pointer-events-none disabled:opacity-50;
   }
 
-  .c-button--default {
+  .sc-button--default {
     @apply bg-zinc-900 text-white shadow-xs hover:bg-zinc-800;
   }
 
-  .c-button--secondary {
+  .sc-button--secondary {
     @apply bg-zinc-100 text-zinc-900 shadow-xs hover:bg-zinc-200;
   }
 
-  .c-button--outline {
+  .sc-button--outline {
     @apply border border-zinc-200 bg-white text-zinc-900 shadow-xs hover:bg-zinc-100;
   }
 
-  .c-button--ghost {
+  .sc-button--ghost {
     @apply text-zinc-900 hover:bg-zinc-100;
   }
 
-  .c-button--link {
+  .sc-button--link {
     @apply text-zinc-900 underline-offset-4 hover:underline;
   }
 
-  .c-button--destructive {
+  .sc-button--destructive {
     @apply bg-red-600 text-white shadow-xs hover:bg-red-500;
   }
 
-  .c-button--sm {
+  .sc-button--sm {
     @apply h-8 gap-1.5 px-3;
   }
 
-  .c-button--lg {
+  .sc-button--lg {
     @apply h-10 px-6;
   }
 
-  .c-button--icon {
+  .sc-button--icon {
     @apply size-9 px-0;
   }
 }

@@ -24,10 +24,10 @@ Each showcase page should include:
 ## Converted-Panel Conventions
 - Use BEM-like component classes for reusable styling.
 - Align class naming with shadcn component and variant vocabulary.
-  - Example block: `c-button`
-  - Example variant: `c-button--destructive`
-  - Example size: `c-button--sm`, `c-button--lg`, `c-button--icon`
-  - Example element: `c-alert__title`
+  - Example block: `sc-button`
+  - Example variant: `sc-button--destructive`
+  - Example size: `sc-button--sm`, `sc-button--lg`, `sc-button--icon`
+  - Example element: `sc-alert__title`
 - Keep utility classes minimal in views when a component stylesheet exists.
 
 ## Styling Strategy

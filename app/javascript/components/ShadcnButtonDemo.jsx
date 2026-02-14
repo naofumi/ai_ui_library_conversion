@@ -29,25 +29,25 @@ export default function ShadcnButtonDemo() {
       <div className="grid gap-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-zinc-500">BEM-like class composition</p>
         <div className="flex flex-wrap items-center gap-3">
-          <button type="button" className="c-button c-button--default">
+          <button type="button" className="sc-button sc-button--default">
             Default
           </button>
-          <button type="button" className="c-button c-button--default c-button--sm">
+          <button type="button" className="sc-button sc-button--default sc-button--sm">
             Small
           </button>
-          <button type="button" className="c-button c-button--default c-button--lg">
+          <button type="button" className="sc-button sc-button--default sc-button--lg">
             Large
           </button>
-          <button type="button" className="c-button c-button--default c-button--icon" aria-label="Add item">
+          <button type="button" className="sc-button sc-button--default sc-button--icon" aria-label="Add item">
             +
           </button>
-          <button type="button" className="c-button c-button--secondary c-button--sm">
+          <button type="button" className="sc-button sc-button--secondary sc-button--sm">
             Secondary / Small
           </button>
-          <button type="button" className="c-button c-button--outline c-button--lg">
+          <button type="button" className="sc-button sc-button--outline sc-button--lg">
             Outline / Large
           </button>
-          <button type="button" className="c-button c-button--destructive c-button--sm">
+          <button type="button" className="sc-button sc-button--destructive sc-button--sm">
             Destructive / Small
           </button>
         </div>

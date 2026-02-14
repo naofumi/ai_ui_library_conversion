@@ -14,39 +14,39 @@
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
 
-      <button type="button" data-action="dialog-preview#open" class="c-button c-button--default">
+      <button type="button" data-action="dialog-preview#open" class="sc-button sc-button--default">
         Edit profile
       </button>
 
-      <div data-dialog-preview-target="overlay" data-action="click->dialog-preview#closeOnBackdrop" class="c-dialog__overlay hidden">
-        <div class="c-dialog__viewport">
-          <div role="dialog" aria-modal="true" class="c-dialog__panel">
-            <button type="button" data-action="dialog-preview#close" aria-label="Close dialog" class="c-dialog__icon-close">
+      <div data-dialog-preview-target="overlay" data-action="click->dialog-preview#closeOnBackdrop" class="sc-dialog__overlay hidden">
+        <div class="sc-dialog__viewport">
+          <div role="dialog" aria-modal="true" class="sc-dialog__panel">
+            <button type="button" data-action="dialog-preview#close" aria-label="Close dialog" class="sc-dialog__icon-close">
               ×
             </button>
 
-            <div class="c-dialog__header">
-              <h3 class="c-dialog__title">Edit profile</h3>
-              <p class="c-dialog__description">Make changes to your profile here. Click save when you're done.</p>
+            <div class="sc-dialog__header">
+              <h3 class="sc-dialog__title">Edit profile</h3>
+              <p class="sc-dialog__description">Make changes to your profile here. Click save when you're done.</p>
             </div>
 
-            <div class="c-dialog__fields">
-              <div class="c-dialog__field">
-                <label for="rails-name" class="c-dialog__label">Name</label>
-                <input id="rails-name" type="text" value="Pedro Duarte" class="c-input">
+            <div class="sc-dialog__fields">
+              <div class="sc-dialog__field">
+                <label for="rails-name" class="sc-dialog__label">Name</label>
+                <input id="rails-name" type="text" value="Pedro Duarte" class="sc-input">
               </div>
 
-              <div class="c-dialog__field">
-                <label for="rails-username" class="c-dialog__label">Username</label>
-                <input id="rails-username" type="text" value="@peduarte" class="c-input">
+              <div class="sc-dialog__field">
+                <label for="rails-username" class="sc-dialog__label">Username</label>
+                <input id="rails-username" type="text" value="@peduarte" class="sc-input">
               </div>
             </div>
 
-            <div class="c-dialog__actions">
-              <button type="button" data-action="dialog-preview#close" class="c-button c-button--outline">
+            <div class="sc-dialog__actions">
+              <button type="button" data-action="dialog-preview#close" class="sc-button sc-button--outline">
                 Cancel
               </button>
-              <button type="button" data-action="dialog-preview#close" class="c-button c-button--default">
+              <button type="button" data-action="dialog-preview#close" class="sc-button sc-button--default">
                 Save changes
               </button>
             </div>
