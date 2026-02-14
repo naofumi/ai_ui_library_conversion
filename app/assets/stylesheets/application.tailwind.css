@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./components/button.css";
 @import "./components/badge.css";
+@import "./components/alert.css";
 @import "./components/input.css";
 @import "./components/dialog.css";
 @import "./components/dropdown-menu.css";

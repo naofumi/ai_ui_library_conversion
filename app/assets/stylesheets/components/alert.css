@@ -1,0 +1,41 @@
+@layer components {
+  .c-alert {
+    @apply relative grid w-full grid-cols-[calc(var(--spacing)*4)_1fr] items-start gap-x-3 gap-y-1 rounded-lg border px-4 py-3 text-sm;
+  }
+
+  .c-alert--default {
+    @apply border-zinc-200 bg-white text-zinc-950;
+  }
+
+  .c-alert--destructive {
+    @apply border-red-200 bg-red-50 text-red-700;
+  }
+
+  .c-alert__icon {
+    @apply mt-0.5 size-2.5 rounded-full;
+  }
+
+  .c-alert--default .c-alert__icon {
+    @apply bg-zinc-900;
+  }
+
+  .c-alert--destructive .c-alert__icon {
+    @apply bg-red-700;
+  }
+
+  .c-alert__title {
+    @apply col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight;
+  }
+
+  .c-alert__description {
+    @apply col-start-2 text-sm text-zinc-600;
+  }
+
+  .c-alert--destructive .c-alert__description {
+    @apply text-red-700/90;
+  }
+
+  .c-alert__action {
+    @apply col-start-2 mt-2 w-fit rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs font-medium text-zinc-900 shadow-xs hover:bg-zinc-100;
+  }
+}

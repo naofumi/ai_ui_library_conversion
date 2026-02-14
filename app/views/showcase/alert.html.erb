@@ -17,11 +17,19 @@
         <button type="button" data-action="alert-preview#reset" class="rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-xs hover:bg-zinc-100">Restore alert</button>
       </div>
 
-      <div data-alert-preview-target="alert" role="alert" class="relative grid w-full max-w-lg grid-cols-[calc(var(--spacing)*4)_1fr] items-start gap-x-3 gap-y-1 rounded-lg border border-zinc-200 px-4 py-3 text-sm text-zinc-950">
-        <div class="mt-0.5 size-2.5 rounded-full bg-zinc-900"></div>
-        <div class="col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight">Heads up</div>
-        <div class="col-start-2 text-sm text-zinc-600">This alert demonstrates an informational state with a dismiss action.</div>
-        <button type="button" data-action="alert-preview#dismiss" class="col-start-2 mt-2 w-fit rounded-md border border-zinc-200 bg-white px-2 py-1 text-xs font-medium text-zinc-900 shadow-xs hover:bg-zinc-100">Dismiss</button>
+      <div class="grid max-w-lg gap-3">
+        <div data-alert-preview-target="alert" role="alert" class="c-alert c-alert--default">
+          <div class="c-alert__icon"></div>
+          <div class="c-alert__title">Heads up</div>
+          <div class="c-alert__description">This alert demonstrates an informational state with a dismiss action.</div>
+          <button type="button" data-action="alert-preview#dismiss" class="c-alert__action">Dismiss</button>
+        </div>
+
+        <div role="alert" class="c-alert c-alert--destructive">
+          <div class="c-alert__icon"></div>
+          <div class="c-alert__title">Error</div>
+          <div class="c-alert__description">Your session has expired. Please sign in again.</div>
+        </div>
       </div>
     </article>
   </section>
