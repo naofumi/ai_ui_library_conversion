@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   root "shadcn_showcase#index"
+  get "/mui", to: "mui_showcase#index", as: :mui
 
   scope :shadcn, controller: :shadcn_showcase, as: :shadcn do
     get :button
@@ -19,5 +20,9 @@ Rails.application.routes.draw do
     get :input
     get :dialog
     get :dropdown_menu
+  end
+
+  scope :mui, controller: :mui_showcase, as: :mui do
+    get :button
   end
 end

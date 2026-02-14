@@ -35,6 +35,8 @@ Then open `http://localhost:3000`.
 ## Current showcase pages
 
 - `/` component index
+- `/mui` MUI showcase index
+- `/mui/button`
 - `/shadcn/button`
 - `/shadcn/badge`
 - `/shadcn/card`
@@ -46,11 +48,16 @@ Then open `http://localhost:3000`.
 ## File map
 
 - `app/controllers/shadcn_showcase_controller.rb`: shadcn showcase pages
+- `app/controllers/mui_showcase_controller.rb`: MUI showcase pages
 - `app/views/shadcn_showcase/index.html.erb`: component index
+- `app/views/mui_showcase/index.html.erb`: MUI component index
 - `app/views/shadcn_showcase/button.html.erb`: side-by-side button comparison
+- `app/views/mui_showcase/button.html.erb`: side-by-side MUI button comparison
 - `app/javascript/components/ShadcnButtonDemo.jsx`: React source demo
+- `app/javascript/components/MUIButtonDemo.jsx`: React MUI source demo
 - `app/javascript/components/ui/*`: real shadcn-style React UI components (Radix-backed where applicable) used by source demos
 - `app/javascript/shadcn_preview.jsx`: React mount points
+- `app/javascript/mui_preview.jsx`: MUI React mount points
 - `app/javascript/controllers/button_preview_controller.js`: Stimulus behavior for converted demo
 
 ## Important note on package manager selection
