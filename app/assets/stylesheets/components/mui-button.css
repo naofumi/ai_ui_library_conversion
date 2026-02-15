@@ -63,7 +63,6 @@
 
   .mu-button--error {
     background-color: var(--mu-color-error);
-    box-shadow: var(--mu-shadow-contained);
     color: var(--mu-color-error-contrast);
   }
 
@@ -111,8 +110,7 @@
     pointer-events: none;
   }
 
-  .mu-button--contained:disabled,
-  .mu-button--error:disabled {
+  .mu-button--contained:disabled {
     background-color: var(--mu-color-disabled-bg);
     color: var(--mu-color-disabled-fg);
   }
