@@ -84,3 +84,33 @@ This keeps the app aligned with the Node/Yarn workflow.
 4. Mount it from `app/javascript/shadcn_preview.jsx`.
 5. Add Stimulus controller logic only if interaction is needed.
 6. Add the component card in `app/views/shadcn_showcase/index.html.erb`.
+
+## Visual parity feedback loop (input example)
+
+Run:
+
+```bash
+bin/parity-input
+```
+
+Optional (use an already running app server):
+
+```bash
+PARITY_APP_HOST=http://localhost:3000 bin/parity-input
+```
+
+Force Chrome:
+
+```bash
+PARITY_BROWSER=chrome bin/parity-input
+```
+
+Output:
+
+- `tmp/parity/input/source-*.png`
+- `tmp/parity/input/converted-*.png`
+- `tmp/parity/input/diff-*.png`
+- `tmp/parity/input/report.md`
+
+The script captures default/hover/focus/error states for `/mui/input` and computes per-state mismatch percentages.
+If Safari is used, enable `Develop > Allow Remote Automation` first.

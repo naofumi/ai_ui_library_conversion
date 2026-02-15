@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+RAILS_ENV=test bundle exec ruby script/parity/input_parity.rb
