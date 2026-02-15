@@ -1,13 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["content"]
+  static targets = ["content", "trigger"]
 
   connect() {
     this.boundCloseOnEscape = this.closeOnEscape.bind(this)
     this.boundCloseOnOutsideClick = this.closeOnOutsideClick.bind(this)
     window.addEventListener("keydown", this.boundCloseOnEscape)
     window.addEventListener("mousedown", this.boundCloseOnOutsideClick)
+    this.setExpanded(false)
   }
 
   disconnect() {
@@ -16,11 +17,14 @@ export default class extends Controller {
   }
 
   toggle() {
+    const willOpen = this.contentTarget.classList.contains("hidden")
     this.contentTarget.classList.toggle("hidden")
+    this.setExpanded(willOpen)
   }
 
   close() {
     this.contentTarget.classList.add("hidden")
+    this.setExpanded(false)
   }
 
   closeOnEscape(event) {
@@ -32,6 +36,16 @@ export default class extends Controller {
   closeOnOutsideClick(event) {
     if (!this.element.contains(event.target)) {
       this.close()
+    }
+  }
+
+  setExpanded(expanded) {
+    if (this.hasTriggerTarget) {
+      if (expanded) {
+        this.triggerTarget.setAttribute("aria-expanded", "true")
+      } else {
+        this.triggerTarget.removeAttribute("aria-expanded")
+      }
     }
   }
 }

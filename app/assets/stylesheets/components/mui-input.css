@@ -63,7 +63,7 @@
   }
 
   .mu-input:disabled {
-    border-color: rgb(0 0 0 / 23%);
+    border-color: rgb(0 0 0 / 26%);
     color: rgb(0 0 0 / 38%);
     cursor: default;
   }
@@ -86,7 +86,7 @@
     font-size: 0.75rem;
     line-height: 1.66;
     margin-left: 14px;
-    margin-top: 3px;
+    margin-top: 4px;
   }
 
   .mu-input-helper--error {

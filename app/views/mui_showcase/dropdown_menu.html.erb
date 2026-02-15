@@ -15,26 +15,39 @@
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
 
       <div data-controller="dropdown-menu-preview" class="mu-dropdown-menu">
-        <button type="button" data-action="dropdown-menu-preview#toggle" class="mu-dropdown-menu__trigger">
+        <button
+          type="button"
+          data-action="dropdown-menu-preview#toggle"
+          data-dropdown-menu-preview-target="trigger"
+          class="mu-dropdown-menu__trigger"
+          aria-controls="mu-dropdown-menu-content"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
           Open menu
         </button>
 
-        <div data-dropdown-menu-preview-target="content" class="mu-dropdown-menu__content hidden">
+        <div
+          id="mu-dropdown-menu-content"
+          data-dropdown-menu-preview-target="content"
+          class="mu-dropdown-menu__content hidden"
+          role="menu"
+        >
           <div class="mu-dropdown-menu__label">My Account</div>
 
-          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item">
+          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item" role="menuitem">
             Profile
           </button>
-          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item">
+          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item" role="menuitem">
             Billing
           </button>
-          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item">
+          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item" role="menuitem">
             Settings
           </button>
 
           <div class="mu-dropdown-menu__separator"></div>
 
-          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item">
+          <button type="button" data-action="dropdown-menu-preview#close" class="mu-dropdown-menu__item" role="menuitem">
             Log out
           </button>
         </div>

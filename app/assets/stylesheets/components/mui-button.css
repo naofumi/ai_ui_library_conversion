@@ -4,7 +4,7 @@
   }
 
   .mu-button-group {
-    @apply flex flex-wrap items-center gap-3;
+    @apply flex flex-wrap gap-3;
   }
 
   .mu-button {
@@ -25,7 +25,6 @@
     transition: var(--mu-transition);
     user-select: none;
     vertical-align: middle;
-    white-space: nowrap;
   }
 
   .mu-button--contained {
