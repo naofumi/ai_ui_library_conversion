@@ -40,12 +40,20 @@ Each showcase page should include:
 - If source is interactive, replicate behavior with Stimulus.
 - Do not add extra accessibility/behavior that diverges from source unless explicitly requested.
 
+## Verification Strategy (Playwright MCP)
+- Use Playwright MCP for direct, in-session parity inspection.
+- Prefer inspecting real computed styles and DOM structure over maintaining bespoke parity scripts.
+- For stateful components, compare at least: default, hover, focus, disabled, and error (if present).
+- Use MCP snapshots/screenshots only to confirm visible parity; treat anti-aliasing noise as secondary.
+- When mismatch appears, inspect source and converted computed values first, then patch CSS/ERB/Stimulus.
+- Keep verification lightweight and iterative: inspect, patch, rebuild, re-check.
+
 ## Component Workflow
 1. Implement or verify real shadcn source demo.
 2. Implement converted ERB structure.
 3. Add or update component stylesheet with BEM-like classes.
 4. Add Stimulus behavior only when needed for parity.
-5. Compare source vs converted for visual/interaction parity.
+5. Compare source vs converted for visual/interaction parity with Playwright MCP.
 6. Run build checks (`yarn build`, `yarn build:css`).
 7. Commit focused changes.
 
