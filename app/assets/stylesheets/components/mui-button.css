@@ -1,193 +1,193 @@
 @layer components {
   :root {
-    --mc-btn-radius: 4px;
-    --mc-btn-min-width: 64px;
-    --mc-btn-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    --mc-btn-font-weight: 500;
-    --mc-btn-letter-spacing: 0.02857em;
-    --mc-btn-line-height: 1.75;
-    --mc-btn-font-size-md: 0.875rem;
-    --mc-btn-font-size-sm: 0.8125rem;
-    --mc-btn-font-size-lg: 0.9375rem;
+    --mu-btn-radius: 4px;
+    --mu-btn-min-width: 64px;
+    --mu-btn-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    --mu-btn-font-weight: 500;
+    --mu-btn-letter-spacing: 0.02857em;
+    --mu-btn-line-height: 1.75;
+    --mu-btn-font-size-md: 0.875rem;
+    --mu-btn-font-size-sm: 0.8125rem;
+    --mu-btn-font-size-lg: 0.9375rem;
 
-    --mc-btn-pad-y-md: 6px;
-    --mc-btn-pad-x-md: 16px;
-    --mc-btn-pad-y-sm: 4px;
-    --mc-btn-pad-x-sm: 10px;
-    --mc-btn-pad-y-lg: 8px;
-    --mc-btn-pad-x-lg: 22px;
+    --mu-btn-pad-y-md: 6px;
+    --mu-btn-pad-x-md: 16px;
+    --mu-btn-pad-y-sm: 4px;
+    --mu-btn-pad-x-sm: 10px;
+    --mu-btn-pad-y-lg: 8px;
+    --mu-btn-pad-x-lg: 22px;
 
-    --mc-btn-outlined-pad-y-md: 5px;
-    --mc-btn-outlined-pad-x-md: 15px;
-    --mc-btn-outlined-pad-y-sm: 3px;
-    --mc-btn-outlined-pad-x-sm: 9px;
-    --mc-btn-outlined-pad-y-lg: 7px;
-    --mc-btn-outlined-pad-x-lg: 21px;
+    --mu-btn-outlined-pad-y-md: 5px;
+    --mu-btn-outlined-pad-x-md: 15px;
+    --mu-btn-outlined-pad-y-sm: 3px;
+    --mu-btn-outlined-pad-x-sm: 9px;
+    --mu-btn-outlined-pad-y-lg: 7px;
+    --mu-btn-outlined-pad-x-lg: 21px;
 
-    --mc-btn-text-pad-y-md: 6px;
-    --mc-btn-text-pad-x-md: 8px;
-    --mc-btn-text-pad-y-sm: 4px;
-    --mc-btn-text-pad-x-sm: 5px;
-    --mc-btn-text-pad-y-lg: 8px;
-    --mc-btn-text-pad-x-lg: 11px;
+    --mu-btn-text-pad-y-md: 6px;
+    --mu-btn-text-pad-x-md: 8px;
+    --mu-btn-text-pad-y-sm: 4px;
+    --mu-btn-text-pad-x-sm: 5px;
+    --mu-btn-text-pad-y-lg: 8px;
+    --mu-btn-text-pad-x-lg: 11px;
 
-    --mc-color-primary: rgb(25, 118, 210);
-    --mc-color-primary-hover: rgb(21, 101, 192);
-    --mc-color-primary-contrast: rgb(255, 255, 255);
-    --mc-color-primary-alpha-50: rgb(25 118 210 / 50%);
-    --mc-color-primary-alpha-4: rgb(25 118 210 / 4%);
-    --mc-color-primary-alpha-30: rgb(25 118 210 / 30%);
+    --mu-color-primary: rgb(25, 118, 210);
+    --mu-color-primary-hover: rgb(21, 101, 192);
+    --mu-color-primary-contrast: rgb(255, 255, 255);
+    --mu-color-primary-alpha-50: rgb(25 118 210 / 50%);
+    --mu-color-primary-alpha-4: rgb(25 118 210 / 4%);
+    --mu-color-primary-alpha-30: rgb(25 118 210 / 30%);
 
-    --mc-color-error: rgb(211, 47, 47);
-    --mc-color-error-hover: rgb(198, 40, 40);
-    --mc-color-error-contrast: rgb(255, 255, 255);
+    --mu-color-error: rgb(211, 47, 47);
+    --mu-color-error-hover: rgb(198, 40, 40);
+    --mu-color-error-contrast: rgb(255, 255, 255);
 
-    --mc-color-disabled-bg: rgb(0 0 0 / 12%);
-    --mc-color-disabled-fg: rgb(0 0 0 / 26%);
+    --mu-color-disabled-bg: rgb(0 0 0 / 12%);
+    --mu-color-disabled-fg: rgb(0 0 0 / 26%);
 
-    --mc-shadow-contained:
+    --mu-shadow-contained:
       0 3px 1px -2px rgb(0 0 0 / 20%),
       0 2px 2px 0 rgb(0 0 0 / 14%),
       0 1px 5px 0 rgb(0 0 0 / 12%);
-    --mc-shadow-contained-hover:
+    --mu-shadow-contained-hover:
       0 2px 4px -1px rgb(0 0 0 / 20%),
       0 4px 5px 0 rgb(0 0 0 / 14%),
       0 1px 10px 0 rgb(0 0 0 / 12%);
 
-    --mc-transition:
+    --mu-transition:
       background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
       border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
       color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .mc-button-shell {
+  .mu-button-shell {
     @apply rounded-lg border border-dashed border-zinc-300 p-6;
   }
 
-  .mc-button-group {
+  .mu-button-group {
     @apply flex flex-wrap items-center gap-3;
   }
 
-  .mc-button {
+  .mu-button {
     align-items: center;
     border: 0;
-    border-radius: var(--mc-btn-radius);
+    border-radius: var(--mu-btn-radius);
     cursor: pointer;
     display: inline-flex;
-    font-family: var(--mc-btn-font-family);
-    font-size: var(--mc-btn-font-size-md);
-    font-weight: var(--mc-btn-font-weight);
+    font-family: var(--mu-btn-font-family);
+    font-size: var(--mu-btn-font-size-md);
+    font-weight: var(--mu-btn-font-weight);
     justify-content: center;
-    letter-spacing: var(--mc-btn-letter-spacing);
-    line-height: var(--mc-btn-line-height);
-    min-width: var(--mc-btn-min-width);
-    padding: var(--mc-btn-pad-y-md) var(--mc-btn-pad-x-md);
+    letter-spacing: var(--mu-btn-letter-spacing);
+    line-height: var(--mu-btn-line-height);
+    min-width: var(--mu-btn-min-width);
+    padding: var(--mu-btn-pad-y-md) var(--mu-btn-pad-x-md);
     text-transform: uppercase;
-    transition: var(--mc-transition);
+    transition: var(--mu-transition);
     user-select: none;
     vertical-align: middle;
     white-space: nowrap;
   }
 
-  .mc-button--contained {
-    background-color: var(--mc-color-primary);
-    box-shadow: var(--mc-shadow-contained);
-    color: var(--mc-color-primary-contrast);
+  .mu-button--contained {
+    background-color: var(--mu-color-primary);
+    box-shadow: var(--mu-shadow-contained);
+    color: var(--mu-color-primary-contrast);
   }
 
-  .mc-button--contained:hover {
-    background-color: var(--mc-color-primary-hover);
-    box-shadow: var(--mc-shadow-contained-hover);
+  .mu-button--contained:hover {
+    background-color: var(--mu-color-primary-hover);
+    box-shadow: var(--mu-shadow-contained-hover);
   }
 
-  .mc-button--outlined {
+  .mu-button--outlined {
     background-color: transparent;
-    border: 1px solid var(--mc-color-primary-alpha-50);
-    color: var(--mc-color-primary);
-    padding: var(--mc-btn-outlined-pad-y-md) var(--mc-btn-outlined-pad-x-md);
+    border: 1px solid var(--mu-color-primary-alpha-50);
+    color: var(--mu-color-primary);
+    padding: var(--mu-btn-outlined-pad-y-md) var(--mu-btn-outlined-pad-x-md);
   }
 
-  .mc-button--outlined:hover,
-  .mc-button--text:hover {
-    background-color: var(--mc-color-primary-alpha-4);
+  .mu-button--outlined:hover,
+  .mu-button--text:hover {
+    background-color: var(--mu-color-primary-alpha-4);
   }
 
-  .mc-button--outlined:hover {
-    border-color: var(--mc-color-primary);
+  .mu-button--outlined:hover {
+    border-color: var(--mu-color-primary);
   }
 
-  .mc-button--text {
+  .mu-button--text {
     background-color: transparent;
-    color: var(--mc-color-primary);
-    padding: var(--mc-btn-text-pad-y-md) var(--mc-btn-text-pad-x-md);
+    color: var(--mu-color-primary);
+    padding: var(--mu-btn-text-pad-y-md) var(--mu-btn-text-pad-x-md);
   }
 
-  .mc-button--error {
-    background-color: var(--mc-color-error);
-    box-shadow: var(--mc-shadow-contained);
-    color: var(--mc-color-error-contrast);
+  .mu-button--error {
+    background-color: var(--mu-color-error);
+    box-shadow: var(--mu-shadow-contained);
+    color: var(--mu-color-error-contrast);
   }
 
-  .mc-button--error:hover {
-    background-color: var(--mc-color-error-hover);
+  .mu-button--error:hover {
+    background-color: var(--mu-color-error-hover);
   }
 
-  .mc-button--sm {
-    font-size: var(--mc-btn-font-size-sm);
-    min-width: var(--mc-btn-min-width);
-    padding: var(--mc-btn-pad-y-sm) var(--mc-btn-pad-x-sm);
+  .mu-button--sm {
+    font-size: var(--mu-btn-font-size-sm);
+    min-width: var(--mu-btn-min-width);
+    padding: var(--mu-btn-pad-y-sm) var(--mu-btn-pad-x-sm);
   }
 
-  .mc-button--lg {
-    font-size: var(--mc-btn-font-size-lg);
-    min-width: var(--mc-btn-min-width);
-    padding: var(--mc-btn-pad-y-lg) var(--mc-btn-pad-x-lg);
+  .mu-button--lg {
+    font-size: var(--mu-btn-font-size-lg);
+    min-width: var(--mu-btn-min-width);
+    padding: var(--mu-btn-pad-y-lg) var(--mu-btn-pad-x-lg);
   }
 
-  .mc-button--outlined.mc-button--sm {
-    padding: var(--mc-btn-outlined-pad-y-sm) var(--mc-btn-outlined-pad-x-sm);
+  .mu-button--outlined.mu-button--sm {
+    padding: var(--mu-btn-outlined-pad-y-sm) var(--mu-btn-outlined-pad-x-sm);
   }
 
-  .mc-button--outlined.mc-button--lg {
-    padding: var(--mc-btn-outlined-pad-y-lg) var(--mc-btn-outlined-pad-x-lg);
+  .mu-button--outlined.mu-button--lg {
+    padding: var(--mu-btn-outlined-pad-y-lg) var(--mu-btn-outlined-pad-x-lg);
   }
 
-  .mc-button--text.mc-button--sm {
-    padding: var(--mc-btn-text-pad-y-sm) var(--mc-btn-text-pad-x-sm);
+  .mu-button--text.mu-button--sm {
+    padding: var(--mu-btn-text-pad-y-sm) var(--mu-btn-text-pad-x-sm);
   }
 
-  .mc-button--text.mc-button--lg {
-    padding: var(--mc-btn-text-pad-y-lg) var(--mc-btn-text-pad-x-lg);
+  .mu-button--text.mu-button--lg {
+    padding: var(--mu-btn-text-pad-y-lg) var(--mu-btn-text-pad-x-lg);
   }
 
-  .mc-button:focus-visible {
-    outline: 3px solid var(--mc-color-primary-alpha-30);
+  .mu-button:focus-visible {
+    outline: 3px solid var(--mu-color-primary-alpha-30);
     outline-offset: 2px;
   }
 
-  .mc-button:disabled {
+  .mu-button:disabled {
     box-shadow: none;
-    color: var(--mc-color-disabled-fg);
+    color: var(--mu-color-disabled-fg);
     cursor: default;
     pointer-events: none;
   }
 
-  .mc-button--contained:disabled,
-  .mc-button--error:disabled {
-    background-color: var(--mc-color-disabled-bg);
-    color: var(--mc-color-disabled-fg);
+  .mu-button--contained:disabled,
+  .mu-button--error:disabled {
+    background-color: var(--mu-color-disabled-bg);
+    color: var(--mu-color-disabled-fg);
   }
 
-  .mc-button--outlined:disabled {
-    border-color: var(--mc-color-disabled-bg);
+  .mu-button--outlined:disabled {
+    border-color: var(--mu-color-disabled-bg);
   }
 
-  .mc-button--text:disabled {
+  .mu-button--text:disabled {
     background-color: transparent;
   }
 
-  .mc-button--utility {
+  .mu-button--utility {
     letter-spacing: normal;
     text-transform: none;
   }
