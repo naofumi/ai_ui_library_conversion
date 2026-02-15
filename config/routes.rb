@@ -24,5 +24,6 @@ Rails.application.routes.draw do
 
   scope :mui, controller: :mui_showcase, as: :mui do
     get :button
+    get :input
   end
 end

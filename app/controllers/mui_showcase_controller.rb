@@ -6,6 +6,7 @@ class MuiShowcaseController < ApplicationController
   end
 
   def button; end
+  def input; end
 
   private
 

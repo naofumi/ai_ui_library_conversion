@@ -8,6 +8,13 @@ class MuiShowcaseComponent
       description: "Variant, color, and size prop combinations",
       page_title: "MUI Button Conversion",
       page_description: "Left side uses real MUI Button props. Right side mirrors equivalent outcomes in ERB + Tailwind + Stimulus-friendly classes."
+    },
+    {
+      key: "input",
+      name: "Input",
+      description: "Text fields with states and helper text",
+      page_title: "MUI Input Conversion",
+      page_description: "Left side uses real MUI TextField patterns. Right side mirrors equivalent outcomes in ERB + Tailwind classes."
     }
   ].freeze
 

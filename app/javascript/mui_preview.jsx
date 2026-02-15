@@ -1,6 +1,7 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import MUIButtonDemo from "./components/MUIButtonDemo"
+import MUIInputDemo from "./components/MUIInputDemo"
 
 const roots = new WeakMap()
 
@@ -19,6 +20,7 @@ function mountReactDemo(dataReactValue, DemoComponent) {
 
 function mountAllDemos() {
   mountReactDemo("mui-button-demo", MUIButtonDemo)
+  mountReactDemo("mui-input-demo", MUIInputDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)

@@ -1,0 +1,90 @@
+@layer components {
+  .mu-input-shell {
+    @apply rounded-lg border border-dashed border-zinc-300 p-6;
+  }
+
+  .mu-input-stack {
+    @apply grid w-full max-w-xs gap-4;
+  }
+
+  .mu-input-field {
+    @apply grid;
+    position: relative;
+  }
+
+  .mu-input-label {
+    background-color: rgb(255 255 255);
+    color: rgb(0 0 0 / 60%);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.4375em;
+    left: 12px;
+    padding: 0 5px;
+    pointer-events: none;
+    position: absolute;
+    top: -8px;
+    z-index: 1;
+  }
+
+  .mu-input-label--error {
+    color: rgb(211, 47, 47);
+  }
+
+  .mu-input-label--disabled {
+    color: rgb(0 0 0 / 38%);
+  }
+
+  .mu-input {
+    appearance: none;
+    border: 1px solid rgb(0 0 0 / 23%);
+    border-radius: 4px;
+    color: rgb(0 0 0 / 87%);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    padding: 8.5px 14px;
+    transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mu-input:hover:not(:disabled):not(.mu-input--error) {
+    border-color: rgb(0 0 0 / 87%);
+  }
+
+  .mu-input:focus {
+    border-color: rgb(25, 118, 210);
+    outline: none;
+  }
+
+  .mu-input:disabled {
+    background-color: rgb(0 0 0 / 6%);
+    border-color: rgb(0 0 0 / 23%);
+    color: rgb(0 0 0 / 38%);
+    cursor: default;
+  }
+
+  .mu-input--error {
+    border-color: rgb(211, 47, 47);
+  }
+
+  .mu-input--error:hover:not(:disabled) {
+    border-color: rgb(198, 40, 40);
+  }
+
+  .mu-input--error:focus {
+    border-color: rgb(211, 47, 47);
+  }
+
+  .mu-input-helper {
+    color: rgb(0 0 0 / 60%);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.66;
+    margin-left: 14px;
+    margin-top: 3px;
+  }
+
+  .mu-input-helper--error {
+    color: rgb(211, 47, 47);
+  }
+}

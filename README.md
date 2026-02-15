@@ -37,6 +37,7 @@ Then open `http://localhost:3000`.
 - `/` component index
 - `/mui` MUI showcase index
 - `/mui/button`
+- `/mui/input`
 - `/shadcn/button`
 - `/shadcn/badge`
 - `/shadcn/card`
@@ -53,8 +54,10 @@ Then open `http://localhost:3000`.
 - `app/views/mui_showcase/index.html.erb`: MUI component index
 - `app/views/shadcn_showcase/button.html.erb`: side-by-side button comparison
 - `app/views/mui_showcase/button.html.erb`: side-by-side MUI button comparison
+- `app/views/mui_showcase/input.html.erb`: side-by-side MUI input comparison
 - `app/javascript/components/ShadcnButtonDemo.jsx`: React source demo
 - `app/javascript/components/MUIButtonDemo.jsx`: React MUI source demo
+- `app/javascript/components/MUIInputDemo.jsx`: React MUI input source demo
 - `app/javascript/components/ui/*`: real shadcn-style React UI components (Radix-backed where applicable) used by source demos
 - `app/javascript/shadcn_preview.jsx`: React mount points
 - `app/javascript/mui_preview.jsx`: MUI React mount points

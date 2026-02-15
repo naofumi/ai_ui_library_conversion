@@ -1,0 +1,43 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", mui_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
+    <p class="mt-2 text-sm text-zinc-600"><%= @component.page_description %></p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + MUI)</h2>
+      <div data-react="mui-input-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+
+      <div class="mu-input-shell">
+        <div class="mu-input-stack">
+          <label class="mu-input-field">
+            <span class="mu-input-label">Email</span>
+            <input type="email" value="name@example.com" class="mu-input" />
+          </label>
+
+          <label class="mu-input-field">
+            <span class="mu-input-label">Username</span>
+            <input type="text" value="peduarte" class="mu-input" />
+          </label>
+
+          <label class="mu-input-field">
+            <span class="mu-input-label mu-input-label--disabled">Disabled</span>
+            <input type="text" value="Unavailable" class="mu-input" disabled />
+          </label>
+
+          <label class="mu-input-field">
+            <span class="mu-input-label mu-input-label--error">Error</span>
+            <input type="text" value="invalid-address" class="mu-input mu-input--error" />
+            <span class="mu-input-helper mu-input-helper--error">Please enter a valid email address</span>
+          </label>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
