@@ -3,8 +3,7 @@
   "private": true,
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
-    "parity:mui-input": "node script/parity/mui_input_parity.mjs"
+    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -22,11 +21,8 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.58.2",
     "@tailwindcss/cli": "^4.1.18",
     "esbuild": "^0.27.3",
-    "pixelmatch": "^7.1.0",
-    "pngjs": "^7.0.0",
     "tailwindcss": "^4.1.18"
   }
 }

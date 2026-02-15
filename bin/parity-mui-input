@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-node script/parity/mui_input_parity.mjs
