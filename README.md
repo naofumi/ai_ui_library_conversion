@@ -85,32 +85,33 @@ This keeps the app aligned with the Node/Yarn workflow.
 5. Add Stimulus controller logic only if interaction is needed.
 6. Add the component card in `app/views/shadcn_showcase/index.html.erb`.
 
-## Visual parity feedback loop (input example)
+## Visual parity feedback loop (MUI input)
+
+Install once:
+
+```bash
+yarn add -D @playwright/test pixelmatch pngjs
+npx playwright install chromium
+```
 
 Run:
 
 ```bash
-bin/parity-input
+bin/parity-mui-input
 ```
 
 Optional (use an already running app server):
 
 ```bash
-PARITY_APP_HOST=http://localhost:3000 bin/parity-input
-```
-
-Force Chrome:
-
-```bash
-PARITY_BROWSER=chrome bin/parity-input
+PARITY_APP_HOST=http://localhost:3000 bin/parity-mui-input
 ```
 
 Output:
 
-- `tmp/parity/input/source-*.png`
-- `tmp/parity/input/converted-*.png`
-- `tmp/parity/input/diff-*.png`
-- `tmp/parity/input/report.md`
+- `tmp/parity/mui-input/source-*.png`
+- `tmp/parity/mui-input/converted-*.png`
+- `tmp/parity/mui-input/diff-*.png`
+- `tmp/parity/mui-input/report.md`
 
 The script captures default/hover/focus/error states for `/mui/input` and computes per-state mismatch percentages.
-If Safari is used, enable `Develop > Allow Remote Automation` first.
+On selector failures it also writes `debug_page.html` and `debug_page.png` in the same output folder.
