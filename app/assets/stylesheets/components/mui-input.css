@@ -57,7 +57,6 @@
   }
 
   .mu-input:disabled {
-    background-color: rgb(0 0 0 / 6%);
     border-color: rgb(0 0 0 / 23%);
     color: rgb(0 0 0 / 38%);
     cursor: default;
