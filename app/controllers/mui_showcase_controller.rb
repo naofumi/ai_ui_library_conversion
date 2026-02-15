@@ -7,6 +7,7 @@ class MuiShowcaseController < ApplicationController
 
   def button; end
   def input; end
+  def dropdown_menu; end
 
   private
 

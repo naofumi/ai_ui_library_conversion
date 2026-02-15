@@ -15,6 +15,13 @@ class MuiShowcaseComponent
       description: "Text fields with states and helper text",
       page_title: "MUI Input Conversion",
       page_description: "Left side uses real MUI TextField patterns. Right side mirrors equivalent outcomes in ERB + Tailwind classes."
+    },
+    {
+      key: "dropdown_menu",
+      name: "Dropdown menu",
+      description: "Menu trigger, grouped actions, and separators",
+      page_title: "MUI Dropdown Menu Conversion",
+      page_description: "Left side uses real MUI Menu + MenuItem patterns. Right side mirrors equivalent outcomes in ERB + Tailwind + Stimulus."
     }
   ].freeze
 
