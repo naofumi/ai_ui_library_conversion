@@ -13,6 +13,7 @@
 
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+      <!-- CODE:converted:start -->
       <div class="rounded-lg border border-dashed border-zinc-300 p-6">
         <div class="flex flex-wrap items-center gap-3">
           <span class="sc-badge sc-badge--default">Default</span>
@@ -21,6 +22,12 @@
           <span class="sc-badge sc-badge--destructive">Destructive</span>
         </div>
       </div>
+      <!-- CODE:converted:end -->
     </article>
+  </section>
+
+  <section class="mt-6 grid gap-6 lg:grid-cols-2">
+    <%= render "shared/code_panel", title: "Source Code (React)", code: @source_code %>
+    <%= render "shared/code_panel", title: "Converted Code (ERB)", code: @converted_code %>
   </section>
 </main>
