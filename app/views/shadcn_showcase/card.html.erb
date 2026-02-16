@@ -13,18 +13,24 @@
 
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
-      <div class="sc-card">
-        <div class="sc-card__header">
-          <h3 class="sc-card__title">Card Title</h3>
-          <p class="sc-card__description">Card description text that explains content at a glance.</p>
-        </div>
+      <div class="rounded-lg border border-dashed border-zinc-300 p-6">
+        <div class="sc-card">
+          <div class="sc-card__header">
+            <h3 class="sc-card__title">Create project</h3>
+            <p class="sc-card__description">Deploy your new project in one click.</p>
+          </div>
 
-        <div class="sc-card__content">
-          <div class="sc-card__body-block">Body content area for converted component parity checks.</div>
-        </div>
+          <div class="sc-card__content">
+            <div class="grid gap-2">
+              <label for="rails-project-name" class="text-sm font-medium text-zinc-900">Name</label>
+              <input id="rails-project-name" type="text" placeholder="shadcn-conversion" class="sc-input">
+            </div>
+          </div>
 
-        <div class="sc-card__footer">
-          <button type="button" class="sc-button sc-button--default sc-button--sm">Action</button>
+          <div class="sc-card__footer">
+            <button type="button" class="sc-button sc-button--outline">Cancel</button>
+            <button type="button" class="sc-button sc-button--default">Deploy</button>
+          </div>
         </div>
       </div>
     </article>

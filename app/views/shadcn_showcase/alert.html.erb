@@ -1,4 +1,4 @@
-<main class="mx-auto max-w-7xl px-6 py-10" data-controller="alert-preview">
+<main class="mx-auto max-w-7xl px-6 py-10">
   <header class="mb-8">
     <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
     <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
@@ -13,22 +13,19 @@
 
     <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
       <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
-      <div class="mb-4">
-        <button type="button" data-action="alert-preview#reset" class="rounded-md border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-xs hover:bg-zinc-100">Restore alert</button>
-      </div>
+      <div class="rounded-lg border border-dashed border-zinc-300 p-6">
+        <div class="grid max-w-lg gap-3">
+          <div role="alert" class="sc-alert sc-alert--default">
+            <div class="sc-alert__icon"></div>
+            <div class="sc-alert__title">Heads up!</div>
+            <div class="sc-alert__description">You can add components to your app using the CLI.</div>
+          </div>
 
-      <div class="grid max-w-lg gap-3">
-        <div data-alert-preview-target="alert" role="alert" class="sc-alert sc-alert--default">
-          <div class="sc-alert__icon"></div>
-          <div class="sc-alert__title">Heads up</div>
-          <div class="sc-alert__description">This alert demonstrates an informational state with a dismiss action.</div>
-          <button type="button" data-action="alert-preview#dismiss" class="sc-alert__action">Dismiss</button>
-        </div>
-
-        <div role="alert" class="sc-alert sc-alert--destructive">
-          <div class="sc-alert__icon"></div>
-          <div class="sc-alert__title">Error</div>
-          <div class="sc-alert__description">Your session has expired. Please sign in again.</div>
+          <div role="alert" class="sc-alert sc-alert--destructive">
+            <div class="sc-alert__icon"></div>
+            <div class="sc-alert__title">Error</div>
+            <div class="sc-alert__description">Your session has expired. Please sign in again.</div>
+          </div>
         </div>
       </div>
     </article>

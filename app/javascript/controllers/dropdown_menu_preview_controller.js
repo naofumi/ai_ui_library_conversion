@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ["content", "trigger"]
 
   connect() {
+    this.preserveClosedExpanded = this.hasTriggerTarget && this.triggerTarget.hasAttribute("aria-expanded")
     this.boundCloseOnEscape = this.closeOnEscape.bind(this)
     this.boundCloseOnOutsideClick = this.closeOnOutsideClick.bind(this)
     window.addEventListener("keydown", this.boundCloseOnEscape)
@@ -43,6 +44,8 @@ export default class extends Controller {
     if (this.hasTriggerTarget) {
       if (expanded) {
         this.triggerTarget.setAttribute("aria-expanded", "true")
+      } else if (this.preserveClosedExpanded) {
+        this.triggerTarget.setAttribute("aria-expanded", "false")
       } else {
         this.triggerTarget.removeAttribute("aria-expanded")
       }
