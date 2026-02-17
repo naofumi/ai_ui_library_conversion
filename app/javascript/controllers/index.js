@@ -14,5 +14,7 @@ import DialogPreviewController from "./dialog_preview_controller"
 application.register("dialog-preview", DialogPreviewController)
 import DropdownMenuPreviewController from "./dropdown_menu_preview_controller"
 application.register("dropdown-menu-preview", DropdownMenuPreviewController)
+import ComboboxPreviewController from "./combobox_preview_controller"
+application.register("combobox-preview", ComboboxPreviewController)
 import CopyCodeController from "./copy_code_controller"
 application.register("copy-code", CopyCodeController)

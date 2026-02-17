@@ -50,6 +50,13 @@ class ShadcnShowcaseComponent
       description: "Context menu surface with grouped actions",
       page_title: "Dropdown Menu Conversion",
       page_description: "Compare shadcn dropdown menu layout and open/close behavior."
+    },
+    {
+      key: "combobox",
+      name: "Combobox",
+      description: "Searchable popover selection input",
+      page_title: "Combobox Conversion",
+      page_description: "Compare shadcn combobox filtering and selection behavior."
     }
   ].freeze
 

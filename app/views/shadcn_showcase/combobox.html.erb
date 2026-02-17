@@ -1,0 +1,107 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
+    <p class="mt-2 text-sm text-zinc-600"><%= @component.page_description %></p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-combobox-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind + Stimulus)</h2>
+
+      <!-- CODE:converted:start -->
+      <div class="rounded-lg border border-dashed border-zinc-300 p-6">
+        <div data-controller="combobox-preview" class="sc-combobox">
+          <input type="hidden" data-combobox-preview-target="valueInput" value="">
+
+          <button
+            type="button"
+            class="sc-combobox__trigger"
+            data-action="combobox-preview#toggle keydown->combobox-preview#handleTriggerKeydown"
+            data-combobox-preview-target="trigger"
+            role="combobox"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-controls="sc-combobox-listbox"
+          >
+            <span data-combobox-preview-target="triggerLabel">Select framework...</span>
+            <span class="sc-combobox__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m7 15 5 5 5-5"></path>
+                <path d="m7 9 5-5 5 5"></path>
+              </svg>
+            </span>
+          </button>
+
+          <div class="sc-combobox__panel hidden" data-combobox-preview-target="panel">
+            <div class="sc-combobox__search-row">
+              <span class="sc-combobox__search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg>
+              </span>
+              <input
+                type="text"
+                placeholder="Search framework..."
+                class="sc-combobox__search"
+                data-combobox-preview-target="input"
+                data-action="input->combobox-preview#filterOptions keydown->combobox-preview#handleInputKeydown"
+              >
+            </div>
+
+            <div
+              class="sc-combobox__empty hidden"
+              data-combobox-preview-target="empty"
+            >
+              No framework found.
+            </div>
+
+            <ul id="sc-combobox-listbox" role="listbox" class="sc-combobox__list">
+              <% [
+                { value: "next.js", label: "Next.js" },
+                { value: "sveltekit", label: "SvelteKit" },
+                { value: "nuxt.js", label: "Nuxt.js" },
+                { value: "remix", label: "Remix" },
+                { value: "astro", label: "Astro" }
+              ].each_with_index do |framework, index| %>
+                <li>
+                  <button
+                    type="button"
+                    id="sc-combobox-option-<%= index %>"
+                    role="option"
+                    aria-selected="false"
+                    tabindex="-1"
+                    class="sc-combobox__option"
+                    data-combobox-preview-target="option"
+                    data-value="<%= framework[:value] %>"
+                    data-label="<%= framework[:label] %>"
+                    data-action="combobox-preview#select"
+                  >
+                    <span><%= framework[:label] %></span>
+                    <span data-check class="sc-combobox__check opacity-0" aria-hidden="true">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- CODE:converted:end -->
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-6 lg:grid-cols-2">
+    <%= render "shared/code_panel", title: "Source Code (React)", code: @source_code %>
+    <%= render "shared/code_panel", title: "Converted Code (ERB)", code: @converted_code %>
+  </section>
+</main>

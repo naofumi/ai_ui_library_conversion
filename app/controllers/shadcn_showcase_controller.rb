@@ -13,6 +13,7 @@ class ShadcnShowcaseController < ApplicationController
   def input; end
   def dialog; end
   def dropdown_menu; end
+  def combobox; end
 
   private
 
