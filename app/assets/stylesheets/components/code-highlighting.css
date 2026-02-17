@@ -1,0 +1,52 @@
+@layer components {
+  .code-block .k {
+    color: #f472b6;
+  }
+
+  .code-block .kd,
+  .code-block .kn,
+  .code-block .kp,
+  .code-block .kr,
+  .code-block .kt {
+    color: #f472b6;
+  }
+
+  .code-block .nf,
+  .code-block .nc {
+    color: #22d3ee;
+  }
+
+  .code-block .na,
+  .code-block .nx {
+    color: #7dd3fc;
+  }
+
+  .code-block .s,
+  .code-block .s1,
+  .code-block .s2,
+  .code-block .sr {
+    color: #86efac;
+  }
+
+  .code-block .mi,
+  .code-block .mf {
+    color: #fcd34d;
+  }
+
+  .code-block .o,
+  .code-block .p {
+    color: #cbd5e1;
+  }
+
+  .code-block .c,
+  .code-block .c1,
+  .code-block .cm {
+    color: #94a3b8;
+    font-style: italic;
+  }
+
+  .code-block .err {
+    color: #fecaca;
+    background-color: rgb(239 68 68 / 18%);
+  }
+}
