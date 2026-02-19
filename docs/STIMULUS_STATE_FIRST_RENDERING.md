@@ -37,7 +37,7 @@ For readability, keep methods grouped in this order:
 
 1. event handlers
 2. event-handler-adjacent methods (methods handlers dispatch to directly - dispatchables)
-3. state calculation methods (model-ish methods)
+3. state manipulation methods (model-ish methods)
 4. render methods
 
 ## What This Improves

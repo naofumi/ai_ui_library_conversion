@@ -126,7 +126,7 @@ export default class extends Controller {
     this.triggerTarget.focus()
   }
 
-  /* State calculation methods */
+  /* State manipulation methods */
 
   #openPanel() {
     this.#open = true
