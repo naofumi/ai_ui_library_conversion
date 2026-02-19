@@ -6,6 +6,8 @@ export default class extends Controller {
   #activeIndex = -1
   #filteredOptions = []
 
+  /* Event handlers */
+
   connect() {
     this.boundCloseOnOutsideClick = this.#handleOutsideClick.bind(this)
     this.boundCloseOnEscape = this.#handleEscape.bind(this)
@@ -95,6 +97,8 @@ export default class extends Controller {
     this.#handleOptionSelected(event.currentTarget)
   }
 
+  /* Event handler dispatchables */
+
   #handleOutsideClick(event) {
     if (!this.element.contains(event.target)) {
       this.#closePanel()
@@ -121,6 +125,8 @@ export default class extends Controller {
     this.#render()
     this.triggerTarget.focus()
   }
+
+  /* State calculation methods */
 
   #openPanel() {
     this.#open = true
@@ -161,6 +167,8 @@ export default class extends Controller {
       return label.includes(normalizedInput)
     })
   }
+
+  /* Render methods */
 
   #renderActiveOption() {
     this.optionTargets.forEach((option) => {
