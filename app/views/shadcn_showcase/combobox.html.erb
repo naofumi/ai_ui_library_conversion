@@ -51,13 +51,13 @@
                 placeholder="Search framework..."
                 class="sc-combobox__search"
                 data-combobox-preview-target="input"
-                data-action="input->combobox-preview#filterOptions keydown->combobox-preview#handleInputKeydown"
+                data-action="input->combobox-preview#handleInputFilter keydown->combobox-preview#handleInputKeydown"
               >
             </div>
 
             <div
-              class="sc-combobox__empty hidden"
-              data-combobox-preview-target="empty"
+              class="sc-combobox__empty-message hidden"
+              data-combobox-preview-target="emptyMessage"
             >
               No framework found.
             </div>
@@ -77,14 +77,14 @@
                     role="option"
                     aria-selected="false"
                     tabindex="-1"
-                    class="sc-combobox__option"
+                    class="sc-combobox__option group"
                     data-combobox-preview-target="option"
                     data-value="<%= framework[:value] %>"
                     data-label="<%= framework[:label] %>"
                     data-action="combobox-preview#select"
                   >
                     <span><%= framework[:label] %></span>
-                    <span data-check class="sc-combobox__check opacity-0" aria-hidden="true">
+                    <span data-check class="sc-combobox__check opacity-0 group-aria-selected:opacity-100" aria-hidden="true">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M20 6 9 17l-5-5"></path>
                       </svg>

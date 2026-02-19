@@ -31,12 +31,12 @@
     @apply max-h-60 overflow-auto p-1;
   }
 
-  .sc-combobox__empty {
+  .sc-combobox__empty-message {
     @apply p-3 text-center text-sm text-zinc-500;
   }
 
   .sc-combobox__option {
-    @apply flex h-9 w-full cursor-default items-center rounded-sm px-2 py-1.5 text-sm text-zinc-950 outline-none;
+    @apply flex h-9 w-full cursor-default items-center rounded-sm px-2 py-1.5 text-sm text-zinc-950 outline-none transition-colors hover:bg-zinc-100;
   }
 
   .sc-combobox__option[data-active="true"] {
