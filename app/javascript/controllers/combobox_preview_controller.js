@@ -13,9 +13,7 @@ export default class extends Controller {
     window.addEventListener("keydown", this.boundCloseOnEscape)
     this.#filteredOptions = this.#filterOptionsWithString(this.inputTarget.value)
     this.#syncActiveIndexWithFilteredOptions()
-
-    this.#renderOptions()
-    this.#renderActiveOption()
+    this.#render()
   }
 
   disconnect() {
@@ -28,6 +26,12 @@ export default class extends Controller {
       this.#closePanel()
     } else {
       this.#openPanel()
+    }
+
+    this.#render()
+
+    if (this.#open) {
+      this.inputTarget.focus()
     }
   }
 
@@ -43,13 +47,12 @@ export default class extends Controller {
       if (!this.#open) {
         this.#openPanel()
         this.#changeActiveIndexUsingDirection(0)
-
-        this.#renderActiveOption()
+        this.#render()
+        this.inputTarget.focus()
         this.#scrollActiveOptionIntoView()
       } else {
         this.#changeActiveIndexUsingDirection(1)
-
-        this.#renderActiveOption()
+        this.#render()
         this.#scrollActiveOptionIntoView()
       }
     }
@@ -59,8 +62,7 @@ export default class extends Controller {
     if (event.key === "ArrowDown") {
       event.preventDefault()
       this.#changeActiveIndexUsingDirection(1)
-
-      this.#renderActiveOption()
+      this.#render()
       this.#scrollActiveOptionIntoView()
       return
     }
@@ -68,8 +70,7 @@ export default class extends Controller {
     if (event.key === "ArrowUp") {
       event.preventDefault()
       this.#changeActiveIndexUsingDirection(-1)
-
-      this.#renderActiveOption()
+      this.#render()
       this.#scrollActiveOptionIntoView()
       return
     }
@@ -79,7 +80,7 @@ export default class extends Controller {
 
       if (activeOption) {
         event.preventDefault()
-        this.#selectOption(activeOption)
+        this.#handleOptionSelected(activeOption)
       }
     }
   }
@@ -87,26 +88,38 @@ export default class extends Controller {
   handleInputFilter() {
     this.#filteredOptions = this.#filterOptionsWithString(this.inputTarget.value)
     this.#syncActiveIndexWithFilteredOptions()
-
-    this.#renderOptions()
-    this.#renderActiveOption()
+    this.#render()
   }
 
   select(event) {
-    this.#selectOption(event.currentTarget)
+    this.#handleOptionSelected(event.currentTarget)
   }
 
   #handleOutsideClick(event) {
     if (!this.element.contains(event.target)) {
       this.#closePanel()
+      this.#render()
     }
   }
 
   #handleEscape(event) {
     if (event.key === "Escape" && this.#open) {
       this.#closePanel()
+      this.#render()
       this.triggerTarget.focus()
     }
+  }
+
+  #handleOptionSelected(option) {
+    const value = option.dataset.value
+    const alreadySelected = this.valueInputTarget.value === value
+    const nextValue = alreadySelected ? "" : value
+
+    this.valueInputTarget.value = nextValue
+
+    this.#closePanel()
+    this.#render()
+    this.triggerTarget.focus()
   }
 
   #openPanel() {
@@ -114,18 +127,11 @@ export default class extends Controller {
 
     this.#filteredOptions = this.#filterOptionsWithString(this.inputTarget.value)
     this.#syncActiveIndexWithFilteredOptions()
-
-    this.#renderOptions()
-    this.#renderActiveOption()
-    this.#renderPanel()
-    this.inputTarget.focus()
   }
 
   #closePanel() {
     this.#open = false
     this.#activeIndex = -1
-
-    this.#renderPanel()
   }
 
   #changeActiveIndexUsingDirection(direction) {
@@ -158,7 +164,7 @@ export default class extends Controller {
 
   #renderActiveOption() {
     this.optionTargets.forEach((option) => {
-      if (option.classList.contains("hidden")) {
+      if (!this.#filteredOptions.includes(option)) {
         option.setAttribute("data-active", "false")
         option.setAttribute("tabindex", "-1")
         return
@@ -190,22 +196,26 @@ export default class extends Controller {
     }
   }
 
-  #selectOption(option) {
-    const value = option.dataset.value
-    const label = option.dataset.label
-    const alreadySelected = this.valueInputTarget.value === value
-    const nextValue = alreadySelected ? "" : value
-    const nextLabel = alreadySelected ? "Select framework..." : label
-
-    this.valueInputTarget.value = nextValue
-    this.triggerLabelTarget.textContent = nextLabel
+  #renderSelectedOption() {
+    const selectedValue = this.valueInputTarget.value
 
     this.optionTargets.forEach((option) => {
-      const selected = option.dataset.value === nextValue
+      const selected = option.dataset.value === selectedValue
       option.setAttribute("aria-selected", selected ? "true" : "false")
     })
+  }
 
-    this.#closePanel()
-    this.triggerTarget.focus()
+  #renderTriggerLabel() {
+    const selectedValue = this.valueInputTarget.value
+    const selectedOption = this.optionTargets.find((option) => option.dataset.value === selectedValue)
+    this.triggerLabelTarget.textContent = selectedOption?.dataset.label || "Select framework..."
+  }
+
+  #render() {
+    this.#renderPanel()
+    this.#renderOptions()
+    this.#renderActiveOption()
+    this.#renderSelectedOption()
+    this.#renderTriggerLabel()
   }
 }
