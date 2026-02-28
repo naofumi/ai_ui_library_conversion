@@ -22,7 +22,7 @@ export default function ShadcnDialogDemo() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
+          <DialogDescription>Make changes to your profile here. Click save when you are done.</DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-3">
