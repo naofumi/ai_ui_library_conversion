@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get :dialog
     get :dropdown_menu
     get :combobox
+    get :native_select
   end
 
   scope :mui, controller: :mui_showcase, as: :mui do

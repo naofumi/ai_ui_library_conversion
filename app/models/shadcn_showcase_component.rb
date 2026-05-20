@@ -57,6 +57,13 @@ class ShadcnShowcaseComponent
       description: "Searchable popover selection input",
       page_title: "Combobox Conversion",
       page_description: "Compare shadcn combobox filtering and selection behavior."
+    },
+    {
+      key: "native_select",
+      name: "Native Select",
+      description: "Styled native select, groups, and form states",
+      page_title: "Native Select Conversion",
+      page_description: "Compare shadcn native select patterns and converted Rails equivalents."
     }
   ].freeze
 

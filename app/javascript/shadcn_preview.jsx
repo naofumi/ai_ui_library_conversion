@@ -8,6 +8,7 @@ import ShadcnInputDemo from "./components/ShadcnInputDemo"
 import ShadcnDialogDemo from "./components/ShadcnDialogDemo"
 import ShadcnDropdownMenuDemo from "./components/ShadcnDropdownMenuDemo"
 import ShadcnComboboxDemo from "./components/ShadcnComboboxDemo"
+import ShadcnNativeSelectDemo from "./components/ShadcnNativeSelectDemo"
 
 const roots = new WeakMap()
 
@@ -33,6 +34,7 @@ function mountAllDemos() {
   mountReactDemo("shadcn-dialog-demo", ShadcnDialogDemo)
   mountReactDemo("shadcn-dropdown-menu-demo", ShadcnDropdownMenuDemo)
   mountReactDemo("shadcn-combobox-demo", ShadcnComboboxDemo)
+  mountReactDemo("shadcn-native-select-demo", ShadcnNativeSelectDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)

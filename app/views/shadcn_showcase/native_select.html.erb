@@ -1,0 +1,123 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "\u2190 Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
+    <p class="mt-2 text-sm text-zinc-600"><%= @component.page_description %></p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-native-select-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+
+      <!-- CODE:converted:start -->
+      <div class="rounded-lg border border-dashed border-zinc-300 p-6">
+        <div class="grid gap-6">
+          <div class="grid gap-3">
+            <div class="sc-native-select">
+              <select class="sc-native-select__control">
+                <option class="sc-native-select__option" value="">Select status</option>
+                <option class="sc-native-select__option" value="todo">Todo</option>
+                <option class="sc-native-select__option" value="in-progress">In Progress</option>
+                <option class="sc-native-select__option" value="done">Done</option>
+                <option class="sc-native-select__option" value="cancelled">Cancelled</option>
+              </select>
+              <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+
+            <div class="sc-native-select">
+              <select class="sc-native-select__control sc-native-select__control--sm">
+                <option class="sc-native-select__option" value="">Small select</option>
+                <option class="sc-native-select__option" value="apple">Apple</option>
+                <option class="sc-native-select__option" value="banana">Banana</option>
+                <option class="sc-native-select__option" value="blueberry">Blueberry</option>
+              </select>
+              <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sc-native-select">
+            <select class="sc-native-select__control">
+              <option class="sc-native-select__option" value="">Select department</option>
+              <optgroup class="sc-native-select__optgroup" label="Engineering">
+                <option class="sc-native-select__option" value="frontend">Frontend</option>
+                <option class="sc-native-select__option" value="backend">Backend</option>
+                <option class="sc-native-select__option" value="devops">DevOps</option>
+              </optgroup>
+              <optgroup class="sc-native-select__optgroup" label="Sales">
+                <option class="sc-native-select__option" value="sales-rep">Sales Rep</option>
+                <option class="sc-native-select__option" value="account-manager">Account Manager</option>
+                <option class="sc-native-select__option" value="sales-director">Sales Director</option>
+              </optgroup>
+              <optgroup class="sc-native-select__optgroup" label="Operations">
+                <option class="sc-native-select__option" value="support">Customer Support</option>
+                <option class="sc-native-select__option" value="product-manager">Product Manager</option>
+                <option class="sc-native-select__option" value="ops-manager">Operations Manager</option>
+              </optgroup>
+            </select>
+            <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </div>
+
+          <div class="grid gap-3">
+            <div class="sc-native-select">
+              <select class="sc-native-select__control" disabled>
+                <option class="sc-native-select__option" value="">Select priority</option>
+                <option class="sc-native-select__option" value="low">Low</option>
+                <option class="sc-native-select__option" value="medium">Medium</option>
+                <option class="sc-native-select__option" value="high">High</option>
+                <option class="sc-native-select__option" value="critical">Critical</option>
+              </select>
+              <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+
+            <div class="sc-native-select">
+              <select class="sc-native-select__control" aria-invalid="true">
+                <option class="sc-native-select__option" value="">Select role</option>
+                <option class="sc-native-select__option" value="admin">Admin</option>
+                <option class="sc-native-select__option" value="editor">Editor</option>
+                <option class="sc-native-select__option" value="viewer">Viewer</option>
+                <option class="sc-native-select__option" value="guest">Guest</option>
+              </select>
+              <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </div>
+
+          <div dir="rtl">
+            <div class="sc-native-select">
+              <select class="sc-native-select__control">
+                <option class="sc-native-select__option" value="">اختر الحالة</option>
+                <option class="sc-native-select__option" value="todo">مهام</option>
+                <option class="sc-native-select__option" value="in-progress">قيد التنفيذ</option>
+                <option class="sc-native-select__option" value="done">منجز</option>
+                <option class="sc-native-select__option" value="cancelled">ملغي</option>
+              </select>
+              <svg class="sc-native-select__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CODE:converted:end -->
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-6 lg:grid-cols-2">
+    <%= render "shared/code_panel", title: "Source Code (React)", code: @source_code %>
+    <%= render "shared/code_panel", title: "Converted Code (ERB)", code: @converted_code %>
+  </section>
+</main>

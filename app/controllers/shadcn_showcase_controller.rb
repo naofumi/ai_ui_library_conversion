@@ -14,6 +14,7 @@ class ShadcnShowcaseController < ApplicationController
   def dialog; end
   def dropdown_menu; end
   def combobox; end
+  def native_select; end
 
   private
 

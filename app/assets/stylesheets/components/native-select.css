@@ -1,0 +1,31 @@
+@layer components {
+  .sc-native-select {
+    @apply relative w-fit;
+  }
+
+  .sc-native-select:has(.sc-native-select__control:disabled) {
+    @apply opacity-50;
+  }
+
+  .sc-native-select__control {
+    @apply h-9 w-full min-w-0 appearance-none rounded-md border border-zinc-200 bg-transparent px-3 py-2 pr-9 text-sm text-zinc-950 shadow-xs outline-none transition-[color,box-shadow] focus-visible:border-zinc-400 focus-visible:ring-[3px] focus-visible:ring-zinc-400/50 disabled:pointer-events-none disabled:cursor-not-allowed;
+  }
+
+  .sc-native-select__control--sm {
+    @apply h-8 py-1;
+  }
+
+  .sc-native-select__control[aria-invalid="true"] {
+    @apply border-red-500 ring-red-500/20;
+  }
+
+  .sc-native-select__icon {
+    @apply pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 select-none text-zinc-500 opacity-50;
+  }
+
+  .sc-native-select__option,
+  .sc-native-select__optgroup {
+    background-color: Canvas;
+    color: CanvasText;
+  }
+}
