@@ -1,0 +1,9 @@
+@layer components {
+  .sc-progress {
+    @apply relative h-2 w-full overflow-hidden rounded-full bg-zinc-100;
+  }
+
+  .sc-progress__indicator {
+    @apply h-full bg-zinc-900 transition-all;
+  }
+}

@@ -1,0 +1,41 @@
+<main class="mx-auto max-w-7xl px-6 py-10">
+  <header class="mb-8">
+    <%= link_to "← Back", root_path, class: "text-sm text-zinc-600 hover:text-zinc-900" %>
+    <h1 class="mt-2 text-3xl font-semibold tracking-tight"><%= @component.page_title %></h1>
+    <p class="mt-2 text-sm text-zinc-600"><%= @component.page_description %></p>
+  </header>
+
+  <section class="grid gap-6 lg:grid-cols-2">
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Source (React + shadcn)</h2>
+      <div data-react="shadcn-checkbox-demo" class="rounded-lg border border-dashed border-zinc-300 p-6"></div>
+    </article>
+
+    <article class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">Converted (Rails + Tailwind)</h2>
+      <!-- CODE:converted:start -->
+      <div class="rounded-lg border border-dashed border-zinc-300 p-6">
+        <div class="grid gap-4">
+          <div class="flex items-center gap-3">
+            <input id="converted-terms" type="checkbox" checked class="sc-checkbox">
+            <label for="converted-terms" class="sc-label">Accept terms and conditions</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input id="converted-marketing" type="checkbox" class="sc-checkbox">
+            <label for="converted-marketing" class="sc-label">Send me product updates</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input id="converted-disabled-checkbox" type="checkbox" disabled class="sc-checkbox">
+            <label for="converted-disabled-checkbox" class="sc-label sc-label--disabled">Disabled option</label>
+          </div>
+        </div>
+      </div>
+      <!-- CODE:converted:end -->
+    </article>
+  </section>
+
+  <section class="mt-6 grid gap-6 lg:grid-cols-2">
+    <%= render "shared/code_panel", title: "Source Code (React)", code: @source_code %>
+    <%= render "shared/code_panel", title: "Converted Code (ERB)", code: @converted_code %>
+  </section>
+</main>

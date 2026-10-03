@@ -1,0 +1,13 @@
+@layer components {
+  .sc-tooltip {
+    @apply relative inline-flex;
+  }
+
+  .sc-tooltip__content {
+    @apply absolute bottom-full left-1/2 z-50 mb-2 w-fit -translate-x-1/2 rounded-md bg-zinc-900 px-3 py-1.5 text-xs text-balance text-white;
+  }
+
+  .sc-tooltip__arrow {
+    @apply absolute top-full left-1/2 -mt-px size-2 -translate-x-1/2 rotate-45 bg-zinc-900;
+  }
+}

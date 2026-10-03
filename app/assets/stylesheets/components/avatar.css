@@ -1,0 +1,21 @@
+@layer components {
+  .sc-avatar {
+    @apply relative flex size-8 shrink-0 overflow-hidden rounded-full;
+  }
+
+  .sc-avatar--lg {
+    @apply size-12;
+  }
+
+  .sc-avatar__image {
+    @apply aspect-square size-full object-cover;
+  }
+
+  .sc-avatar__fallback {
+    @apply flex size-full items-center justify-center rounded-full bg-zinc-100 text-sm text-zinc-700;
+  }
+
+  .sc-avatar--lg .sc-avatar__fallback {
+    @apply text-base;
+  }
+}

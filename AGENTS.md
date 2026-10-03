@@ -3,6 +3,10 @@
 ## Project Goal
 Build a Rails app that converts shadcn/ui components into Rails ERB + Tailwind + Stimulus equivalents, with side-by-side comparison pages.
 
+## Scope
+- **Primary:** shadcn → Hotwire (ERB + Tailwind + Stimulus) showcase conversions.
+- **Out of scope:** MUI showcase pages under `/mui` are a frozen comparison experiment only. Do not modify, expand, or convert MUI components unless explicitly requested.
+
 ## Comparison Pattern
 Each component showcase page should render:
 - Left panel: React source implementation using real shadcn/ui component patterns (Radix-backed where applicable).
@@ -29,11 +33,10 @@ Keep these overrides in place unless intentionally changing package manager poli
 ## React Mount Convention
 Do not use ID-based React mount points.
 
-Use data attributes in views:
-- `data-react="shadcn-button-demo"`
-- `data-react="shadcn-badge-demo"`
-- `data-react="shadcn-card-demo"`
-- `data-react="shadcn-alert-demo"`
+Use data attributes in views with this naming rule:
+- `data-react="shadcn-<kebab-component>-demo"`
+
+Examples: `shadcn-button-demo`, `shadcn-dropdown-menu-demo`, `shadcn-native-select-demo`.
 
 Mounting logic lives in `app/javascript/shadcn_preview.jsx`.
 
@@ -44,6 +47,21 @@ Do not introduce additional a11y behavior that diverges from the source without 
 ## Commit Style
 Keep commits small and focused.
 Use descriptive commit messages that name the component or parity fix.
+
+## Read Order
+1. `AGENTS.md` (this file) — scope, conventions, definition of done
+2. `docs/CONVERSION_APPROACH.md` — full conversion playbook and file checklist
+3. `docs/STIMULUS_STATE_FIRST_RENDERING.md` — only when the converted side needs multi-state / nontrivial keyboard behavior
+
+## Definition of Done (new shadcn component)
+- [ ] Route + empty controller action under `shadcn_showcase`
+- [ ] Entry in `ShadcnShowcaseComponent::COMPONENTS`
+- [ ] Showcase view with left `data-react` mount and right `<!-- CODE:converted:* -->` markers
+- [ ] React demo + `ui/*` source module(s); mount registered in `shadcn_preview.jsx`
+- [ ] Converted stylesheet `sc-*` classes imported from `application.tailwind.css`
+- [ ] Stimulus controller registered in `controllers/index.js` only if interaction is required
+- [ ] `yarn build` and `yarn build:css` succeed
+- [ ] Side-by-side parity checked for relevant states
 
 ## Conversion Methodology
 Detailed methodology lives in `docs/CONVERSION_APPROACH.md`.

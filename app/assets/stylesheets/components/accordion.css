@@ -1,0 +1,29 @@
+@layer components {
+  .sc-accordion__item {
+    @apply border-b border-zinc-200;
+  }
+
+  .sc-accordion__item:last-child {
+    @apply border-b-0;
+  }
+
+  .sc-accordion__trigger {
+    @apply flex w-full flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-2 focus-visible:ring-zinc-400;
+  }
+
+  .sc-accordion__icon {
+    @apply size-4 shrink-0 translate-y-0.5 text-zinc-500 transition-transform duration-200;
+  }
+
+  .sc-accordion__item[data-state="open"] .sc-accordion__icon {
+    @apply rotate-180;
+  }
+
+  .sc-accordion__content {
+    @apply overflow-hidden text-sm text-zinc-600;
+  }
+
+  .sc-accordion__content-inner {
+    @apply pt-0 pb-4;
+  }
+}

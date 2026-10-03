@@ -22,6 +22,18 @@ Rails.application.routes.draw do
     get :dropdown_menu
     get :combobox
     get :native_select
+    get :label
+    get :textarea
+    get :separator
+    get :avatar
+    get :checkbox
+    get :switch
+    get :radio_group
+    get :tabs
+    get :accordion
+    get :tooltip
+    get :progress
+    get :skeleton
   end
 
   scope :mui, controller: :mui_showcase, as: :mui do

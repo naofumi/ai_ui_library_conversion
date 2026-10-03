@@ -1,0 +1,14 @@
+@layer components {
+  .sc-radio-group {
+    @apply grid gap-3;
+  }
+
+  .sc-radio {
+    @apply relative size-4 shrink-0 appearance-none rounded-full border border-zinc-300 bg-white shadow-xs outline-none transition-shadow checked:border-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .sc-radio:checked::after {
+    content: "";
+    @apply absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-zinc-900;
+  }
+}

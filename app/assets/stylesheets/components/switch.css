@@ -1,0 +1,14 @@
+@layer components {
+  .sc-switch {
+    @apply relative inline-flex h-[1.15rem] w-8 shrink-0 cursor-pointer appearance-none items-center rounded-full border border-transparent bg-zinc-200 shadow-xs outline-none transition-all checked:bg-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .sc-switch::after {
+    content: "";
+    @apply pointer-events-none absolute top-[1px] left-[1px] size-4 rounded-full bg-white transition-transform;
+  }
+
+  .sc-switch:checked::after {
+    transform: translateX(calc(100% - 2px));
+  }
+}
