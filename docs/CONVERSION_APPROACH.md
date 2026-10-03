@@ -36,6 +36,8 @@ When adding a shadcn showcase component `<name>` (snake_case key, e.g. `dropdown
 7. **Mount** — import + `mountReactDemo("shadcn-<kebab-name>-demo", ...)` in `app/javascript/shadcn_preview.jsx`.
 8. **Converted CSS** — `app/assets/stylesheets/components/<kebab-name>.css` with `sc-*` BEM classes; `@import` from `app/assets/stylesheets/application.tailwind.css`.
 9. **Stimulus (if interactive)** — `app/javascript/controllers/<name>_preview_controller.js` and register in `app/javascript/controllers/index.js`.
+10. **Feature requirements** — add `.cursor/skills/verify-shadcn-lab/features/<name>.md` and link it from that skill’s `features/README.md`.
+11. **Deterministic tests** — extend `test/system/shadcn_showcase/*` for sub-features that Capybara can assert reliably.
 
 MUI track is out of scope for this exercise (frozen comparison only). Do not modify `mu-*` styles, `mui_preview.jsx`, `MuiShowcaseComponent`, or `/mui` pages unless explicitly requested.
 
@@ -75,34 +77,57 @@ MUI track is out of scope for this exercise (frozen comparison only). Do not mod
 - Do not leave unused Stimulus controllers registered “for later.”
 
 ## Verification Strategy
-Verification is tool-agnostic. Use the best available path in order:
+Verification is requirements-driven, then tool-agnostic.
 
-1. **Playwright MCP** (if available in the session) for computed styles and DOM snapshots.
-2. **In-session browser / computer-use tools** for side-by-side visual and interaction checks.
-3. **Screenshot / screen-recording walkthrough** artifacts for representative states.
-4. **Build checks** — always run `yarn build` and `yarn build:css` after JS/CSS changes.
+### Requirements source
+Per-component expectations live in the verification feature map:
 
-Compare at least: default, hover, focus, disabled, and error (if present). For overlays/widgets, also exercise open/close, Escape, outside click, and keyboard paths that the source supports.
+- Index: `.cursor/skills/verify-shadcn-lab/features/README.md`
+- One file per component: `.cursor/skills/verify-shadcn-lab/features/<component>.md`
+- Skill entrypoint: `.cursor/skills/verify-shadcn-lab/SKILL.md`
 
-When mismatch appears, inspect source and converted computed values first, then patch CSS/ERB/Stimulus. Keep verification lightweight and iterative: inspect, patch, rebuild, re-check. Treat anti-aliasing noise as secondary.
+Treat each feature file’s **Sub-features** as the definition of “done” for that converted panel (structure, variants/states, and interactions). Do not invent extra a11y or behavior beyond those requirements and the source demo.
+
+When adding or changing a component:
+
+1. Write or update its feature file first (or in the same change).
+2. Cover deterministic sub-features with Rails system tests under `test/system/shadcn_showcase/`.
+3. Use browser/visual tools for the rest (hover polish, anti-aliasing-sensitive styling, exploratory keyboard paths).
+
+### How to verify
+Prefer this order:
+
+1. **Feature map + system tests** — `bin/rails test:system` (or `bin/verify-shadcn-lab-system-tests`) for converted-panel DOM/ARIA/interaction assertions listed in the feature file.
+2. **Playwright MCP** (if available) for computed styles and DOM snapshots.
+3. **In-session browser / computer-use tools** for side-by-side visual checks against the source panel.
+4. **Screenshot / screen-recording walkthrough** artifacts for representative states.
+5. **Build checks** — always run `yarn build` and `yarn build:css` after JS/CSS changes.
+
+Compare at least the states named in the feature file. As a default floor when the feature file is thin: default, hover, focus, disabled, and error (if present). For overlays/widgets, also exercise open/close, Escape, outside click, and keyboard paths that the source supports—and record those as sub-features when they matter for parity.
+
+When mismatch appears, inspect source and converted computed values first, then patch CSS/ERB/Stimulus (and update the feature file/tests if requirements were wrong). Keep verification lightweight and iterative: inspect, patch, rebuild, re-check. Treat anti-aliasing noise as secondary.
 
 ## Component Workflow
-1. Implement or verify real shadcn source demo (`ui/*` + `Shadcn*Demo.jsx`).
-2. Add route, registry entry, and showcase view shell.
-3. Implement converted ERB structure inside `CODE:converted` markers.
-4. Add or update component stylesheet with BEM-like `sc-*` classes and import it.
-5. Add Stimulus behavior only when needed for parity (choose tier above; read state-first doc when applicable).
-6. Mount the React demo in `shadcn_preview.jsx`.
-7. Compare source vs converted for visual/interaction parity.
-8. Run build checks (`yarn build`, `yarn build:css`).
-9. Commit focused changes.
+1. Sketch or update `.cursor/skills/verify-shadcn-lab/features/<name>.md` sub-features (what the converted panel must prove).
+2. Implement or verify real shadcn source demo (`ui/*` + `Shadcn*Demo.jsx`).
+3. Add route, registry entry, and showcase view shell.
+4. Implement converted ERB structure inside `CODE:converted` markers.
+5. Add or update component stylesheet with BEM-like `sc-*` classes and import it.
+6. Add Stimulus behavior only when needed for parity (choose tier above; read state-first doc when applicable).
+7. Mount the React demo in `shadcn_preview.jsx`.
+8. Add/update system tests for deterministic sub-features; run `bin/rails test:system`.
+9. Compare source vs converted for remaining visual/interaction parity.
+10. Run build checks (`yarn build`, `yarn build:css`).
+11. Commit focused changes.
 
 ## Review Checklist
 - Registry entry exists so the component appears on `/`.
-- Variant coverage matches source examples.
+- Feature file exists under `.cursor/skills/verify-shadcn-lab/features/` and is linked from its README.
+- Variant coverage matches source examples and feature sub-features.
 - Size/state combinations are represented where relevant.
 - Converted markup uses component classes consistently and is wrapped in code markers.
 - Stimulus behavior matches source interactions (or there is no Stimulus when source is static).
+- Deterministic sub-features have system-test coverage where practical.
 - No unnecessary abstractions or unrelated refactors.
 
 ## Anti-Patterns
@@ -120,3 +145,4 @@ When approach changes, update:
 - `AGENTS.md` (concise operational summary + link)
 - `docs/STIMULUS_STATE_FIRST_RENDERING.md` (when Stimulus complexity guidance changes)
 - `README.md` (setup, page list pointers, add-component entrypoint)
+- `.cursor/skills/verify-shadcn-lab/` (skill + feature map when verification requirements change)
