@@ -37,7 +37,7 @@ When adding a shadcn showcase component `<name>` (snake_case key, e.g. `dropdown
 8. **Converted CSS** — `app/assets/stylesheets/components/<kebab-name>.css` with `sc-*` BEM classes; `@import` from `app/assets/stylesheets/application.tailwind.css`.
 9. **Stimulus (if interactive)** — `app/javascript/controllers/<name>_preview_controller.js` and register in `app/javascript/controllers/index.js`.
 
-MUI track (frozen): same pattern with `mu-*` classes, `mui_preview.jsx`, and `MuiShowcaseComponent`. Do not expand unless requested.
+MUI track is out of scope for this exercise (frozen comparison only). Do not modify `mu-*` styles, `mui_preview.jsx`, `MuiShowcaseComponent`, or `/mui` pages unless explicitly requested.
 
 ## Source-Panel Conventions
 - Mount React demos via `data-react` attributes in ERB views.

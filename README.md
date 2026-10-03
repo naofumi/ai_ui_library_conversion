@@ -36,7 +36,7 @@ Then open `http://localhost:3000`.
 
 **Primary — shadcn → Hotwire** (`/`): component index driven by `ShadcnShowcaseComponent`. Pages live under `/shadcn/<component>` (button, badge, card, alert, input, dialog, dropdown_menu, combobox, native_select, and others as they are added).
 
-**Secondary / frozen — MUI** (`/mui`): a small parallel experiment (button, input, dropdown_menu). Kept for pattern comparison; not the active conversion track.
+**Out of scope — MUI** (`/mui`): a small parallel experiment (button, input, dropdown_menu) kept only to show that denser closed libraries are harder to convert. Do not modify this track.
 
 ## File map
 

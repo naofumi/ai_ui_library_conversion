@@ -5,7 +5,7 @@ Build a Rails app that converts shadcn/ui components into Rails ERB + Tailwind +
 
 ## Scope
 - **Primary:** shadcn → Hotwire (ERB + Tailwind + Stimulus) showcase conversions.
-- **Secondary / frozen:** MUI showcase pages under `/mui` exist for pattern comparison. Do not expand the MUI track unless explicitly requested.
+- **Out of scope:** MUI showcase pages under `/mui` are a frozen comparison experiment only. Do not modify, expand, or convert MUI components unless explicitly requested.
 
 ## Comparison Pattern
 Each component showcase page should render:
