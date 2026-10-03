@@ -8,8 +8,6 @@ import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 import ButtonPreviewController from "./button_preview_controller"
 application.register("button-preview", ButtonPreviewController)
-import AlertPreviewController from "./alert_preview_controller"
-application.register("alert-preview", AlertPreviewController)
 import DialogPreviewController from "./dialog_preview_controller"
 application.register("dialog-preview", DialogPreviewController)
 import DropdownMenuPreviewController from "./dropdown_menu_preview_controller"

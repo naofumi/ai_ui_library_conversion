@@ -26,9 +26,9 @@ class ShadcnShowcaseComponent
     {
       key: "alert",
       name: "Alert",
-      description: "Contextual message and dismiss behavior",
+      description: "Contextual message variants and structure",
       page_title: "Alert Conversion",
-      page_description: "Compare shadcn alert structure and dismiss behavior."
+      page_description: "Compare shadcn alert structure and converted Rails equivalents."
     },
     {
       key: "input",
