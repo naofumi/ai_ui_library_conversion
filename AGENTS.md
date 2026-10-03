@@ -60,6 +60,8 @@ Use descriptive commit messages that name the component or parity fix.
 - [ ] React demo + `ui/*` source module(s); mount registered in `shadcn_preview.jsx`
 - [ ] Converted stylesheet `sc-*` classes imported from `application.tailwind.css`
 - [ ] Stimulus controller registered in `controllers/index.js` only if interaction is required
+- [ ] Feature file under `.cursor/skills/verify-shadcn-lab/features/` (linked from its README)
+- [ ] System tests for deterministic sub-features where practical (`test/system/shadcn_showcase/`)
 - [ ] `yarn build` and `yarn build:css` succeed
 - [ ] Side-by-side parity checked for relevant states
 
