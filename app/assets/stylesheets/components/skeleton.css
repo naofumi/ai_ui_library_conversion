@@ -1,0 +1,5 @@
+@layer components {
+  .sc-skeleton {
+    @apply animate-pulse rounded-md bg-zinc-100;
+  }
+}

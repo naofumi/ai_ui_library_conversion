@@ -16,6 +16,11 @@ import ShadcnAvatarDemo from "./components/ShadcnAvatarDemo"
 import ShadcnCheckboxDemo from "./components/ShadcnCheckboxDemo"
 import ShadcnSwitchDemo from "./components/ShadcnSwitchDemo"
 import ShadcnRadioGroupDemo from "./components/ShadcnRadioGroupDemo"
+import ShadcnTabsDemo from "./components/ShadcnTabsDemo"
+import ShadcnAccordionDemo from "./components/ShadcnAccordionDemo"
+import ShadcnTooltipDemo from "./components/ShadcnTooltipDemo"
+import ShadcnProgressDemo from "./components/ShadcnProgressDemo"
+import ShadcnSkeletonDemo from "./components/ShadcnSkeletonDemo"
 
 const roots = new WeakMap()
 
@@ -49,6 +54,11 @@ function mountAllDemos() {
   mountReactDemo("shadcn-checkbox-demo", ShadcnCheckboxDemo)
   mountReactDemo("shadcn-switch-demo", ShadcnSwitchDemo)
   mountReactDemo("shadcn-radio-group-demo", ShadcnRadioGroupDemo)
+  mountReactDemo("shadcn-tabs-demo", ShadcnTabsDemo)
+  mountReactDemo("shadcn-accordion-demo", ShadcnAccordionDemo)
+  mountReactDemo("shadcn-tooltip-demo", ShadcnTooltipDemo)
+  mountReactDemo("shadcn-progress-demo", ShadcnProgressDemo)
+  mountReactDemo("shadcn-skeleton-demo", ShadcnSkeletonDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)

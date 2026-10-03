@@ -14,5 +14,11 @@ import DropdownMenuPreviewController from "./dropdown_menu_preview_controller"
 application.register("dropdown-menu-preview", DropdownMenuPreviewController)
 import ComboboxPreviewController from "./combobox_preview_controller"
 application.register("combobox-preview", ComboboxPreviewController)
+import TabsPreviewController from "./tabs_preview_controller"
+application.register("tabs-preview", TabsPreviewController)
+import AccordionPreviewController from "./accordion_preview_controller"
+application.register("accordion-preview", AccordionPreviewController)
+import TooltipPreviewController from "./tooltip_preview_controller"
+application.register("tooltip-preview", TooltipPreviewController)
 import CopyCodeController from "./copy_code_controller"
 application.register("copy-code", CopyCodeController)

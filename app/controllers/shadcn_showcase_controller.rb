@@ -22,6 +22,11 @@ class ShadcnShowcaseController < ApplicationController
   def checkbox; end
   def switch; end
   def radio_group; end
+  def tabs; end
+  def accordion; end
+  def tooltip; end
+  def progress; end
+  def skeleton; end
 
   private
 

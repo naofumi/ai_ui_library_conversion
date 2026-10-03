@@ -29,6 +29,11 @@ Rails.application.routes.draw do
     get :checkbox
     get :switch
     get :radio_group
+    get :tabs
+    get :accordion
+    get :tooltip
+    get :progress
+    get :skeleton
   end
 
   scope :mui, controller: :mui_showcase, as: :mui do

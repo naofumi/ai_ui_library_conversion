@@ -113,6 +113,41 @@ class ShadcnShowcaseComponent
       description: "Single-choice radio options and disabled items",
       page_title: "Radio Group Conversion",
       page_description: "Compare shadcn radio group selection and converted Rails equivalents."
+    },
+    {
+      key: "tabs",
+      name: "Tabs",
+      description: "Tablist navigation with panel switching",
+      page_title: "Tabs Conversion",
+      page_description: "Compare shadcn tabs selection behavior and converted Rails equivalents."
+    },
+    {
+      key: "accordion",
+      name: "Accordion",
+      description: "Collapsible single-open content sections",
+      page_title: "Accordion Conversion",
+      page_description: "Compare shadcn accordion open/close behavior and converted Rails equivalents."
+    },
+    {
+      key: "tooltip",
+      name: "Tooltip",
+      description: "Hover and focus hint content",
+      page_title: "Tooltip Conversion",
+      page_description: "Compare shadcn tooltip presentation and converted Rails equivalents."
+    },
+    {
+      key: "progress",
+      name: "Progress",
+      description: "Determinate progress bar values",
+      page_title: "Progress Conversion",
+      page_description: "Compare shadcn progress indicators and converted Rails equivalents."
+    },
+    {
+      key: "skeleton",
+      name: "Skeleton",
+      description: "Loading placeholder pulse shapes",
+      page_title: "Skeleton Conversion",
+      page_description: "Compare shadcn skeleton placeholders and converted Rails equivalents."
     }
   ].freeze
 
