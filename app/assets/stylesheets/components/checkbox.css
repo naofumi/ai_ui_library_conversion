@@ -1,0 +1,12 @@
+@layer components {
+  .sc-checkbox {
+    @apply relative size-4 shrink-0 appearance-none rounded-[4px] border border-zinc-300 bg-white shadow-xs outline-none transition-shadow checked:border-zinc-900 checked:bg-zinc-900 focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .sc-checkbox:checked::after {
+    content: "";
+    @apply absolute inset-0 bg-center bg-no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 0.875rem 0.875rem;
+  }
+}

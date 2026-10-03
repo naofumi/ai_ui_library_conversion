@@ -1,0 +1,13 @@
+@layer components {
+  .sc-separator {
+    @apply shrink-0 bg-zinc-200;
+  }
+
+  .sc-separator--horizontal {
+    @apply h-px w-full;
+  }
+
+  .sc-separator--vertical {
+    @apply h-full w-px;
+  }
+}

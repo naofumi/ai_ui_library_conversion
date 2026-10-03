@@ -15,6 +15,13 @@ class ShadcnShowcaseController < ApplicationController
   def dropdown_menu; end
   def combobox; end
   def native_select; end
+  def label; end
+  def textarea; end
+  def separator; end
+  def avatar; end
+  def checkbox; end
+  def switch; end
+  def radio_group; end
 
   private
 

@@ -64,6 +64,55 @@ class ShadcnShowcaseComponent
       description: "Styled native select, groups, and form states",
       page_title: "Native Select Conversion",
       page_description: "Compare shadcn native select patterns and converted Rails equivalents."
+    },
+    {
+      key: "label",
+      name: "Label",
+      description: "Accessible form labels paired with controls",
+      page_title: "Label Conversion",
+      page_description: "Compare shadcn label styling and converted Rails equivalents."
+    },
+    {
+      key: "textarea",
+      name: "Textarea",
+      description: "Multi-line text input styles and states",
+      page_title: "Textarea Conversion",
+      page_description: "Compare shadcn textarea states and converted Rails equivalents."
+    },
+    {
+      key: "separator",
+      name: "Separator",
+      description: "Horizontal and vertical dividers",
+      page_title: "Separator Conversion",
+      page_description: "Compare shadcn separator orientations and converted Rails equivalents."
+    },
+    {
+      key: "avatar",
+      name: "Avatar",
+      description: "Image avatars with fallback initials",
+      page_title: "Avatar Conversion",
+      page_description: "Compare shadcn avatar image and fallback patterns."
+    },
+    {
+      key: "checkbox",
+      name: "Checkbox",
+      description: "Checked, unchecked, and disabled states",
+      page_title: "Checkbox Conversion",
+      page_description: "Compare shadcn checkbox states and converted Rails equivalents."
+    },
+    {
+      key: "switch",
+      name: "Switch",
+      description: "Toggle switch on, off, and disabled",
+      page_title: "Switch Conversion",
+      page_description: "Compare shadcn switch states and converted Rails equivalents."
+    },
+    {
+      key: "radio_group",
+      name: "Radio Group",
+      description: "Single-choice radio options and disabled items",
+      page_title: "Radio Group Conversion",
+      page_description: "Compare shadcn radio group selection and converted Rails equivalents."
     }
   ].freeze
 

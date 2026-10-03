@@ -9,6 +9,13 @@ import ShadcnDialogDemo from "./components/ShadcnDialogDemo"
 import ShadcnDropdownMenuDemo from "./components/ShadcnDropdownMenuDemo"
 import ShadcnComboboxDemo from "./components/ShadcnComboboxDemo"
 import ShadcnNativeSelectDemo from "./components/ShadcnNativeSelectDemo"
+import ShadcnLabelDemo from "./components/ShadcnLabelDemo"
+import ShadcnTextareaDemo from "./components/ShadcnTextareaDemo"
+import ShadcnSeparatorDemo from "./components/ShadcnSeparatorDemo"
+import ShadcnAvatarDemo from "./components/ShadcnAvatarDemo"
+import ShadcnCheckboxDemo from "./components/ShadcnCheckboxDemo"
+import ShadcnSwitchDemo from "./components/ShadcnSwitchDemo"
+import ShadcnRadioGroupDemo from "./components/ShadcnRadioGroupDemo"
 
 const roots = new WeakMap()
 
@@ -35,6 +42,13 @@ function mountAllDemos() {
   mountReactDemo("shadcn-dropdown-menu-demo", ShadcnDropdownMenuDemo)
   mountReactDemo("shadcn-combobox-demo", ShadcnComboboxDemo)
   mountReactDemo("shadcn-native-select-demo", ShadcnNativeSelectDemo)
+  mountReactDemo("shadcn-label-demo", ShadcnLabelDemo)
+  mountReactDemo("shadcn-textarea-demo", ShadcnTextareaDemo)
+  mountReactDemo("shadcn-separator-demo", ShadcnSeparatorDemo)
+  mountReactDemo("shadcn-avatar-demo", ShadcnAvatarDemo)
+  mountReactDemo("shadcn-checkbox-demo", ShadcnCheckboxDemo)
+  mountReactDemo("shadcn-switch-demo", ShadcnSwitchDemo)
+  mountReactDemo("shadcn-radio-group-demo", ShadcnRadioGroupDemo)
 }
 
 document.addEventListener("turbo:load", mountAllDemos)
