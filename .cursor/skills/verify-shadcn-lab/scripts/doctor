@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_root() {
+  local start dir
+  start="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  if [[ -L "${BASH_SOURCE[0]}" ]]; then
+    start="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+  fi
+  dir="$start"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/Gemfile" && -f "$dir/package.json" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  echo "Unable to locate repo root from ${BASH_SOURCE[0]}" >&2
+  exit 1
+}
+
+ROOT="$(resolve_root)"
+cd "$ROOT"
+
+ok=0
+fail() { echo "doctor FAIL: $*" >&2; ok=1; }
+pass() { echo "doctor OK: $*"; }
+
+command -v ruby >/dev/null || fail "ruby missing"
+command -v node >/dev/null || fail "node missing"
+command -v yarn >/dev/null || fail "yarn missing"
+[[ -f app/assets/builds/application.js ]] || fail "missing app/assets/builds/application.js (run yarn build)"
+[[ -f app/assets/builds/application.css ]] || fail "missing app/assets/builds/application.css (run yarn build:css)"
+
+BASE_URL="${VERIFY_BASE_URL:-}"
+if [[ -z "$BASE_URL" ]]; then
+  meta="$(ls -1dt tmp/verify-shadcn-lab/*/meta.env 2>/dev/null | head -1 || true)"
+  if [[ -n "${meta}" ]]; then
+    # shellcheck disable=SC1090
+    source "$meta"
+    BASE_URL="${VERIFY_BASE_URL:-http://127.0.0.1:${VERIFY_PORT:-3000}}"
+  else
+    BASE_URL="http://127.0.0.1:${VERIFY_PORT:-3000}"
+  fi
+fi
+
+if [[ "${VERIFY_MODE:-}" == "system-tests" ]]; then
+  pass "skipping live server checks (VERIFY_MODE=system-tests; Capybara boots its own server)"
+elif curl -fsS "$BASE_URL/up" >/dev/null 2>&1; then
+  pass "GET $BASE_URL/up -> 200"
+  if body="$(curl -fsS "$BASE_URL/" 2>/dev/null)"; then
+    if grep -q "ShadCN Conversion Lab" <<<"$body"; then
+      pass "root page identity"
+    else
+      fail "root page missing ShadCN Conversion Lab"
+    fi
+  else
+    fail "GET $BASE_URL/ failed"
+  fi
+else
+  fail "GET $BASE_URL/up not healthy (start with scripts/launch, or set VERIFY_MODE=system-tests)"
+fi
+
+pass "ruby=$(ruby -v | awk '{print $2}') node=$(node -v)"
+exit "$ok"
