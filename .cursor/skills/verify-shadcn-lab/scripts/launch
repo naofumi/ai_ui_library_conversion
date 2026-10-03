@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_root() {
+  local start dir
+  start="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  if [[ -L "${BASH_SOURCE[0]}" ]]; then
+    start="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+  fi
+  dir="$start"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/Gemfile" && -f "$dir/package.json" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  echo "Unable to locate repo root from ${BASH_SOURCE[0]}" >&2
+  exit 1
+}
+
+ROOT="$(resolve_root)"
+cd "$ROOT"
+
+RUN_ID="${VERIFY_RUN_ID:-$(date +%Y%m%d-%H%M%S)-$$}"
+PORT="${VERIFY_PORT:-3000}"
+DIR="tmp/verify-shadcn-lab/$RUN_ID"
+mkdir -p "$DIR"
+
+if curl -fsS "http://127.0.0.1:$PORT/up" >/dev/null 2>&1; then
+  echo "launch REFUSE: port $PORT already answers /up. Set VERIFY_PORT to a free port or cleanup the owner." >&2
+  exit 2
+fi
+
+[[ -f app/assets/builds/application.js ]] || yarn build
+[[ -f app/assets/builds/application.css ]] || yarn build:css
+
+# Use a run-scoped PID file so launch does not collide with bin/dev / another rails server.
+PIDFILE="$DIR/server.pid"
+nohup env PIDFILE="$PIDFILE" bin/rails server -b 127.0.0.1 -p "$PORT" -P "$PIDFILE" >"$DIR/server.log" 2>&1 &
+# Prefer the pid written by rails; fall back to nohup pid.
+sleep 0.2
+if [[ -f "$PIDFILE" ]]; then
+  :
+else
+  echo $! >"$PIDFILE"
+fi
+
+for _ in $(seq 1 60); do
+  if curl -fsS "http://127.0.0.1:$PORT/up" >/dev/null 2>&1; then
+    cat >"$DIR/meta.env" <<EOF
+VERIFY_RUN_ID=$RUN_ID
+VERIFY_PORT=$PORT
+VERIFY_BASE_URL=http://127.0.0.1:$PORT
+EOF
+    server_pid="$(cat "$PIDFILE")"
+    echo "launch OK: http://127.0.0.1:${PORT} run=${RUN_ID} pid=${server_pid}"
+    exit 0
+  fi
+  sleep 0.5
+done
+
+echo "launch FAIL: server did not become ready; see $DIR/server.log" >&2
+exit 1

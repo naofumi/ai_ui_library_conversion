@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_root() {
+  local start dir
+  start="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  if [[ -L "${BASH_SOURCE[0]}" ]]; then
+    start="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+  fi
+  dir="$start"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/Gemfile" && -f "$dir/package.json" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  echo "Unable to locate repo root from ${BASH_SOURCE[0]}" >&2
+  exit 1
+}
+
+ROOT="$(resolve_root)"
+cd "$ROOT"
+
+RUN_ID="${VERIFY_RUN_ID:-$(date +%Y%m%d-%H%M%S)-$$}"
+DIR="tmp/verify-shadcn-lab/$RUN_ID"
+mkdir -p "$DIR"
+
+yarn build
+yarn build:css
+bin/rails db:test:prepare
+
+set +e
+bin/rails test:system "$@" | tee "$DIR/system-tests.log"
+status=${PIPESTATUS[0]}
+set -e
+
+echo "VERIFY_RUN_ID=$RUN_ID" >"$DIR/meta.env"
+echo "system-tests exit=$status" | tee -a "$DIR/system-tests.log"
+exit "$status"

@@ -70,3 +70,10 @@ Use it as the primary reference for:
 - Source-vs-converted parity workflow
 - BEM-like converted CSS naming aligned with shadcn variants
 - Stimulus usage boundaries and verification checklist
+
+## Verification
+Converted Hotwire panel verification is documented in `.cursor/skills/verify-shadcn-lab/`.
+
+- Feature requirements: `.cursor/skills/verify-shadcn-lab/features/`
+- Deterministic checks: `bin/rails test:system` (see `test/system/shadcn_showcase/`)
+- Helpers: `bin/verify-shadcn-lab-doctor`, `bin/verify-shadcn-lab-system-tests`

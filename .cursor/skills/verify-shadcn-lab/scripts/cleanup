@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_root() {
+  local start dir
+  start="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  if [[ -L "${BASH_SOURCE[0]}" ]]; then
+    start="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+  fi
+  dir="$start"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/Gemfile" && -f "$dir/package.json" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  echo "Unable to locate repo root from ${BASH_SOURCE[0]}" >&2
+  exit 1
+}
+
+ROOT="$(resolve_root)"
+cd "$ROOT"
+
+if [[ -n "${VERIFY_RUN_ID:-}" ]]; then
+  DIR="tmp/verify-shadcn-lab/$VERIFY_RUN_ID"
+else
+  DIR="$(ls -1dt tmp/verify-shadcn-lab/*/ 2>/dev/null | head -1 || true)"
+fi
+
+if [[ -z "${DIR}" || ! -d "$DIR" ]]; then
+  echo "cleanup: no verify-shadcn-lab run directory found"
+  exit 0
+fi
+
+if [[ -f "$DIR/server.pid" ]]; then
+  pid="$(cat "$DIR/server.pid")"
+  if kill -0 "$pid" 2>/dev/null; then
+    kill "$pid" 2>/dev/null || true
+    for _ in $(seq 1 20); do
+      kill -0 "$pid" 2>/dev/null || break
+      sleep 0.25
+    done
+    if kill -0 "$pid" 2>/dev/null; then
+      kill -9 "$pid" 2>/dev/null || true
+    fi
+    echo "cleanup OK: stopped pid $pid (kept $DIR)"
+  else
+    echo "cleanup OK: pid $pid not running (kept $DIR)"
+  fi
+else
+  echo "cleanup OK: no server.pid in $DIR (kept evidence)"
+fi
