@@ -4,10 +4,12 @@
   }
 
   .sc-tooltip__content {
-    @apply absolute bottom-full left-1/2 z-50 mb-2 w-fit -translate-x-1/2 rounded-md bg-zinc-900 px-3 py-1.5 text-xs text-balance text-white;
+    /* w-max + nowrap: absolute tooltips are otherwise shrink-wrapped to the
+       narrow trigger width (unlike Radix, which portals outside the trigger). */
+    @apply absolute bottom-full left-1/2 z-50 mb-1.5 w-max -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-3 py-1.5 text-xs text-white;
   }
 
   .sc-tooltip__arrow {
-    @apply absolute top-full left-1/2 -mt-px size-2 -translate-x-1/2 rotate-45 bg-zinc-900;
+    @apply absolute top-full left-1/2 size-0 -translate-x-1/2 border-x-4 border-t-4 border-x-transparent border-t-zinc-900;
   }
 }

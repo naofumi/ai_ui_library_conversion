@@ -24,3 +24,4 @@ Preconditions:
 ## Gotchas
 
 - Computer-use hover can miss; prefer Capybara hover or CDP for deterministic proof.
+- Converted tip must stay one line (`w-max` + `whitespace-nowrap`); without that, absolute positioning shrinks to the trigger width and wraps unlike Radix portals.
