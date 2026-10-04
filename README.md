@@ -4,13 +4,8 @@ Rails app for comparing real shadcn/ui React components against converted Rails 
 
 ## Demo
 
-Side-by-side click-through of Source (React) and Converted (Hotwire) panels for dialog, tabs, accordion, tooltip, combobox, and checkbox:
+Side-by-side click-through of Source (React) and Converted (Hotwire) panels:
 
-<video src="docs/media/shadcn_hotwire_demo.mp4" controls playsinline width="100%" title="ShadCN React vs Hotwire demo">
-  <a href="docs/media/shadcn_hotwire_demo.mp4">Download the demo video</a>
-</video>
-
-Recording path: [`docs/media/shadcn_hotwire_demo.mp4`](docs/media/shadcn_hotwire_demo.mp4).
 
 ## Goal
 
