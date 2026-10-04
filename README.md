@@ -1,7 +1,4 @@
 
-
-https://github.com/user-attachments/assets/92d1f93a-a746-475a-af95-78d4ed6c4f4a
-
 # ShadCN Conversion Lab
 
 Rails app for comparing real shadcn/ui React components against converted Rails HTML/CSS/JS (Hotwire) implementations.
