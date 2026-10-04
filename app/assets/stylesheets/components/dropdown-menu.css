@@ -20,6 +20,6 @@
   }
 
   .sc-dropdown-menu__item {
-    @apply relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 transition-colors hover:bg-zinc-100;
+    @apply relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-zinc-900 outline-none transition-colors hover:bg-zinc-100 focus:bg-zinc-100;
   }
 }

@@ -16,10 +16,14 @@
 
       <!-- CODE:converted:start -->
       <div class="rounded-lg border border-dashed border-zinc-300 p-6">
-        <div data-controller="dropdown-menu-preview" class="sc-dropdown-menu">
+        <div
+          data-controller="dropdown-menu-preview"
+          data-action="keydown->dropdown-menu-preview#handleKeydown"
+          class="sc-dropdown-menu"
+        >
           <button
             type="button"
-            data-action="dropdown-menu-preview#toggle"
+            data-action="click->dropdown-menu-preview#toggle"
             data-dropdown-menu-preview-target="trigger"
             class="sc-dropdown-menu__trigger"
             aria-controls="sc-dropdown-menu-content"
@@ -33,23 +37,24 @@
             data-dropdown-menu-preview-target="content"
             class="sc-dropdown-menu__content hidden"
             role="menu"
+            aria-orientation="vertical"
           >
             <div class="sc-dropdown-menu__label">My Account</div>
             <div class="sc-dropdown-menu__separator"></div>
 
-            <button type="button" data-action="dropdown-menu-preview#close" class="sc-dropdown-menu__item" role="menuitem">
+            <button type="button" data-action="click->dropdown-menu-preview#select" data-dropdown-menu-preview-target="item" class="sc-dropdown-menu__item" role="menuitem">
               Profile
             </button>
-            <button type="button" data-action="dropdown-menu-preview#close" class="sc-dropdown-menu__item" role="menuitem">
+            <button type="button" data-action="click->dropdown-menu-preview#select" data-dropdown-menu-preview-target="item" class="sc-dropdown-menu__item" role="menuitem">
               Billing
             </button>
-            <button type="button" data-action="dropdown-menu-preview#close" class="sc-dropdown-menu__item" role="menuitem">
+            <button type="button" data-action="click->dropdown-menu-preview#select" data-dropdown-menu-preview-target="item" class="sc-dropdown-menu__item" role="menuitem">
               Settings
             </button>
 
             <div class="sc-dropdown-menu__separator"></div>
 
-            <button type="button" data-action="dropdown-menu-preview#close" class="sc-dropdown-menu__item" role="menuitem">
+            <button type="button" data-action="click->dropdown-menu-preview#select" data-dropdown-menu-preview-target="item" class="sc-dropdown-menu__item" role="menuitem">
               Log out
             </button>
           </div>

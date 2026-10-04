@@ -60,6 +60,38 @@ class InteractiveComponentsTest < ApplicationSystemTestCase
     end
   end
 
+  test "dropdown menu converted panel supports arrow key navigation" do
+    visit_shadcn "dropdown_menu"
+
+    within_converted_panel do
+      trigger = find("button", text: "Open menu")
+      trigger.send_keys(:arrow_down)
+
+      assert_selector "[role='menu']:not(.hidden)"
+      assert_equal "Profile", page.evaluate_script("document.activeElement?.textContent?.trim()")
+      assert_equal "true", trigger["aria-expanded"]
+
+      page.send_keys(:arrow_down)
+      assert_equal "Billing", page.evaluate_script("document.activeElement?.textContent?.trim()")
+
+      page.send_keys(:arrow_down)
+      assert_equal "Settings", page.evaluate_script("document.activeElement?.textContent?.trim()")
+
+      page.send_keys(:arrow_up)
+      assert_equal "Billing", page.evaluate_script("document.activeElement?.textContent?.trim()")
+
+      page.send_keys(:home)
+      assert_equal "Profile", page.evaluate_script("document.activeElement?.textContent?.trim()")
+
+      page.send_keys(:end)
+      assert_equal "Log out", page.evaluate_script("document.activeElement?.textContent?.trim()")
+
+      page.send_keys(:escape)
+      assert_selector "[role='menu'].hidden", visible: :all
+      assert_equal "Open menu", page.evaluate_script("document.activeElement?.textContent?.trim()")
+    end
+  end
+
   test "combobox converted panel opens filters and selects" do
     visit_shadcn "combobox"
 
