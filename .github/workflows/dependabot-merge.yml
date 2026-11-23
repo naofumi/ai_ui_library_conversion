@@ -1,0 +1,150 @@
+name: Merge Dependabot updates
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions: {}
+
+jobs:
+  merge-dependabot:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_repository.id == github.event.repository.id &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+      pull-requests: read
+    steps:
+      - name: Merge the tested Dependabot head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PYTHON'
+          import json
+          import os
+          import subprocess
+
+          ALLOWED_FILES = {
+              "bundler": {"Gemfile", "Gemfile.lock"},
+              "npm_and_yarn": {"package.json", "yarn.lock"},
+              "github_actions": {".github/workflows/ci.yml"},
+          }
+          REQUIRED = {"scan_ruby", "lint", "test", "system-test"}
+          BOT = "dependabot[bot]"
+
+
+          def api(path, method="GET", **fields):
+              command = ["gh", "api", "--method", method, path]
+              for name, value in fields.items():
+                  command.extend(["-f", f"{name}={value}"])
+              result = subprocess.run(command, text=True, capture_output=True)
+              if result.returncode:
+                  raise SystemExit(result.stderr.strip() or f"GitHub API failed for {path}")
+              return json.loads(result.stdout)
+
+
+          def merge(event):
+              repository = event["repository"]
+              run = event["workflow_run"]
+              if run["path"] != ".github/workflows/ci.yml":
+                  return
+
+              branch = run.get("head_branch") or ""
+              prefix, _, package_path = branch.partition("/")
+              ecosystem, _, dependency = package_path.partition("/")
+              allowed_files = ALLOWED_FILES.get(ecosystem)
+              if prefix != "dependabot" or not dependency or not allowed_files:
+                  return
+
+              owner = repository["owner"]["login"]
+              path = f"repos/{repository['full_name']}"
+              base = repository["default_branch"]
+              head_sha = run["head_sha"]
+
+              def matches(pr):
+                  return (
+                      pr["user"]["login"] == BOT
+                      and pr["user"]["type"] == "Bot"
+                      and not pr["draft"]
+                      and pr["base"]["ref"] == base
+                      and pr["base"]["repo"]["id"] == repository["id"]
+                      and (pr["head"]["repo"] or {}).get("id") == repository["id"]
+                      and pr["head"]["ref"] == branch
+                      and pr["head"]["sha"] == head_sha
+                  )
+
+              candidates = api(f"{path}/pulls", state="open", head=f"{owner}:{branch}", base=base)
+              candidate = next((pr for pr in candidates if matches(pr)), None)
+              if candidate is None:
+                  print("No open Dependabot pull request matches this CI run.")
+                  return
+
+              pull = f"{path}/pulls/{candidate['number']}"
+              pr = api(pull)
+              if pr["state"] != "open" or not matches(pr) or pr["commits"] != 1:
+                  print("The pull request no longer matches the tested Dependabot head.")
+                  return
+
+              commits = api(f"{pull}/commits")
+              if len(commits) != 1:
+                  return
+              commit = commits[0]
+              if (
+                  commit["sha"] != head_sha
+                  or (commit["author"] or {}).get("login") != BOT
+                  or not commit["commit"]["verification"]["verified"]
+              ):
+                  print("The head is not a verified Dependabot commit.")
+                  return
+
+              # A strict branch rule also enforces current-base checks at merge time.
+              if [parent["sha"] for parent in commit["parents"]] != [pr["base"]["sha"]]:
+                  print("Dependabot needs to rebase this update onto the current base.")
+                  return
+
+              files = api(f"{pull}/files")
+              if (
+                  not files
+                  or len(files) != pr["changed_files"]
+                  or any(f["status"] != "modified" or f["filename"] not in allowed_files for f in files)
+              ):
+                  print("The pull request changes files outside this dependency update.")
+                  return
+
+              jobs = api(f"{path}/actions/runs/{run['id']}/attempts/{run['run_attempt']}/jobs")["jobs"]
+              required_jobs = [job for job in jobs if job["name"] in REQUIRED]
+              if (
+                  len(required_jobs) != len(REQUIRED)
+                  or {job["name"] for job in required_jobs} != REQUIRED
+                  or any(job["conclusion"] != "success" for job in required_jobs)
+              ):
+                  print("CI did not pass all four required jobs.")
+                  return
+
+              runs = api(
+                  f"{path}/actions/workflows/{run['workflow_id']}/runs",
+                  branch=branch, event="pull_request", head_sha=head_sha, per_page=1,
+              )["workflow_runs"]
+              if (
+                  not runs
+                  or runs[0]["id"] != run["id"]
+                  or runs[0]["run_attempt"] != run["run_attempt"]
+                  or runs[0]["conclusion"] != "success"
+              ):
+                  print("A newer CI run or attempt superseded this run.")
+                  return
+
+              merged = api(f"{pull}/merge", method="PUT", sha=head_sha, merge_method="squash")
+              if not merged["merged"]:
+                  raise SystemExit(merged["message"])
+              print(f"Merged Dependabot pull request #{pr['number']} as {merged['sha']}.")
+
+
+          with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as payload:
+              merge(json.load(payload))
+          PYTHON
